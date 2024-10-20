@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ __('language.Add_Parent') }}
+    {{-- {{ __('language.'Add_Parent) }} --}}
+    empty
 @stop
 @section('css')
     @livewireStyles
@@ -29,7 +30,8 @@
         <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
-                    fnjksdfnfjksdnfdsfnsdhjfbnsdhjbfnsdhj
+                    @livewire('counter')
+                    {{-- <livewire:counter> --}}
                 </div>
             </div>
         </div>

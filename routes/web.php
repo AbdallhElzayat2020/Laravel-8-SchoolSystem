@@ -18,9 +18,7 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ],
     function () {
-        Route::get('test', function () {
-            return view('empty');
-        });
         Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+        Route::view('add_parent', 'livewire.show_Form');
     }
 );

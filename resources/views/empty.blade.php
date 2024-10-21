@@ -31,7 +31,6 @@
             <div class="card card-statistics h-100">
                 <div class="card-body">
                     @livewire('counter')
-                    {{-- <livewire:counter> --}}
                 </div>
             </div>
         </div>

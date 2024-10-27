@@ -24,7 +24,7 @@ class GradeRequest extends FormRequest
     public function rules()
     {
         return [
-            'Name' => 'required|unique:grades,name->ar,' . $this->id,
+            'Name_ar' => 'required|unique:grades,name->ar,' . $this->id,
             'Name_en' => 'required|unique:grades,name->en,' . $this->id,
         ];
     }
@@ -32,8 +32,8 @@ class GradeRequest extends FormRequest
     public function messages()
     {
         return [
-            'Name.required' => trans('validation.required'),
-            'Name.unique' => trans('validation.unique'),
+            'Name_ar.required' => trans('validation.required'),
+            'Name_ar.unique' => trans('validation.unique'),
             'Name_en.required' => trans('validation.required'),
             'Name_en.unique' => trans('validation.unique'),
         ];

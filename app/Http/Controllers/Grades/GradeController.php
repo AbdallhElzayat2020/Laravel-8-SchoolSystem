@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Grades;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GradeRequest;
 use App\Models\Grades\Grade;
 use Illuminate\Http\Request;
 
@@ -26,12 +27,12 @@ class GradeController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GradeRequest $request)
     {
         try {
             $grade = new Grade();
 
-            $grade->Name = ['en' => $request->Name_en, 'ar' => $request->Name];
+            $grade->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
 
             $grade->Notes = $request->Notes;
 
@@ -40,8 +41,9 @@ class GradeController extends Controller
             toastr()->success(__('messages.success'));
 
             return redirect()->route('grades.index');
-        } catch (\Exception $e) {
 
+        } catch (\Exception $e) {
+//            return redirect()->back()->withErrors(['error', $e->getMessage()]);
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

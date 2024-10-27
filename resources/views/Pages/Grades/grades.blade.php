@@ -198,14 +198,14 @@
                             @csrf
                             <div class="row">
                                 <div class="col">
-                                    <label for="Name" class="mr-sm-2">{{ trans('grades.stage_name_ar') }}
+                                    <label for="Name_ar" class="mr-sm-2">{{ trans('grades.stage_name_ar') }}
                                         :</label>
-                                    <input id="Name" required type="text" name="Name" class="form-control">
+                                    <input id="Name_ar"  required type="text" name="Name_ar" class="form-control">
                                 </div>
                                 <div class="col">
                                     <label for="Name_en" class="mr-sm-2">{{ trans('grades.stage_name_en') }}
                                         :</label>
-                                    <input type="text" required class="form-control" name="Name_en">
+                                    <input type="text" required  class="form-control" name="Name_en">
                                 </div>
                             </div>
                             <div class="form-group">

@@ -26,7 +26,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="elements" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="">{{ __('language.Grades_list') }}</a></li>
+                            <li><a href="{{route('grades.index')}}">{{ __('language.Grades_list') }}</a></li>
                         </ul>
                     </li>
                     <!-- menu item calendar-->

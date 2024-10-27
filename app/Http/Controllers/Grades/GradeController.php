@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Grades;
 
-use App\Models\Grade;
+use App\Http\Controllers\Controller;
+use App\Models\Grades\Grade;
 use Illuminate\Http\Request;
 
 class GradeController extends Controller
@@ -14,34 +15,41 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        $grades = Grade::paginate(10);
+        return view('Pages.Grades.grades', compact('grades'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $grade = new Grade();
+
+            $grade->Name = ['en' => $request->Name_en, 'ar' => $request->Name];
+
+            $grade->Notes = $request->Notes;
+
+            $grade->save();
+
+            toastr()->success(__('messages.success'));
+
+            return redirect()->route('grades.index');
+        } catch (\Exception $e) {
+
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param \App\Models\Grades\Grade $grade
      * @return \Illuminate\Http\Response
      */
     public function show(Grade $grade)
@@ -52,7 +60,7 @@ class GradeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param \App\Models\Grades\Grade $grade
      * @return \Illuminate\Http\Response
      */
     public function edit(Grade $grade)
@@ -63,8 +71,8 @@ class GradeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Grade  $grade
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Grades\Grade $grade
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Grade $grade)
@@ -75,7 +83,7 @@ class GradeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Grade  $grade
+     * @param \App\Models\Grades\Grade $grade
      * @return \Illuminate\Http\Response
      */
     public function destroy(Grade $grade)

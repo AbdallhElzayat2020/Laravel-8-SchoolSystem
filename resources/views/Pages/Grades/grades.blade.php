@@ -112,7 +112,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label
-                                                                for="exampleFormControlTextarea1">{{ trans('grades.Notes') }}
+                                                            for="exampleFormControlTextarea1">{{ trans('grades.Notes') }}
                                                             :</label>
                                                         <textarea class="form-control" name="Notes"
                                                                   id="exampleFormControlTextarea1"
@@ -200,12 +200,12 @@
                                 <div class="col">
                                     <label for="Name_ar" class="mr-sm-2">{{ trans('grades.stage_name_ar') }}
                                         :</label>
-                                    <input id="Name_ar"  required type="text" name="Name_ar" class="form-control">
+                                    <input id="Name_ar" required type="text" name="Name_ar" class="form-control">
                                 </div>
                                 <div class="col">
                                     <label for="Name_en" class="mr-sm-2">{{ trans('grades.stage_name_en') }}
                                         :</label>
-                                    <input type="text" required  class="form-control" name="Name_en">
+                                    <input type="text" required class="form-control" name="Name_en">
                                 </div>
                             </div>
                             <div class="form-group">

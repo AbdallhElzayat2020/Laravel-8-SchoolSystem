@@ -43,32 +43,10 @@ class GradeController extends Controller
             return redirect()->route('grades.index');
 
         } catch (\Exception $e) {
-//            return redirect()->back()->withErrors(['error', $e->getMessage()]);
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Grades\Grade $grade
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Grade $grade)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Grades\Grade $grade
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Grade $grade)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -77,19 +55,41 @@ class GradeController extends Controller
      * @param \App\Models\Grades\Grade $grade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grade $grade)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+
+            $Grades = Grade::findOrFail($request->id);
+
+            $Grades->update([
+
+                $Grades->Name = ['ar' => $request->Name, 'en' => $request->Name_en],
+
+                $Grades->Notes = $request->Notes,
+            ]);
+            toastr()->success(trans('messages.Update'));
+
+            return redirect()->route('grades.index');
+
+        } catch (\Exception $e) {
+
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Grades\Grade $grade
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Grade $grade)
+
+    public function destroy(Request $request)
     {
-        //
+        try {
+            $grade = Grade::findOrFail($request->id);
+
+            $grade->delete();
+
+            toastr()->success(__('messages.Delete'));
+
+            return redirect()->route('grades.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 }

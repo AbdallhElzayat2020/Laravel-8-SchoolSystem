@@ -12,7 +12,9 @@ class Grade extends Model
 
     use HasTranslations;
     public $translatable = ['Name'];
-    protected $fillable = ['Name','Notes'];
+    protected $fillable = ['Name', 'Notes'];
     public $timestamps = true;
+
+
 
 }

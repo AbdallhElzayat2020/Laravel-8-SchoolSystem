@@ -14,7 +14,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="dashboard" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="">{{ __('language.Dashboard_page') }}</a> </li>
+                            <li><a href="">{{ __('language.Dashboard_page') }}</a></li>
                         </ul>
                     </li>
                     <!-- menu item Elements-->
@@ -26,20 +26,20 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="elements" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{route('grades.index')}}">{{ __('language.Grades_list') }}</a></li>
+                            <li><a href="{{ route('grades.index') }}">{{ __('language.Grades_list') }}</a></li>
                         </ul>
                     </li>
                     <!-- menu item calendar-->
                     <li>
-                        <a href="" data-toggle="collapse" data-target="#calendar-menu">
+                        <a href="javascript:void(0)" data-toggle="collapse" data-target="#calendar-menu">
                             <div class="pull-left"><i class="ti-calendar"></i><span
                                     class="right-nav-text">{{ __('My_Classes_trans.title_page') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="calendar-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="">{{ __('My_Classes_trans.List_classes') }}
-                                </a> </li>
+                            <li><a href="{{ route('classrooms.index') }}">{{ __('My_Classes_trans.List_classes') }}
+                                </a></li>
                         </ul>
                     </li>
                     <!-- menu item todo-->
@@ -67,8 +67,8 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="">{{ __('language.List_Parents') }}</a> </li>
-                            <li> <a href="{{ url('add_parent') }}">{{ __('language.Add_Parent') }}</a> </li>
+                            <li><a href="">{{ __('language.List_Parents') }}</a></li>
+                            <li><a href="{{ url('add_parent') }}">{{ __('language.Add_Parent') }}</a></li>
                         </ul>
                     </li>
                     <!-- menu font icon-->
@@ -80,13 +80,13 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                            <li><a href="fontawesome-icon.html">font Awesome</a></li>
+                            <li><a href="themify-icons.html">Themify icons</a></li>
+                            <li><a href="weather-icon.html">Weather icons</a></li>
                         </ul>
                     </li>
                     <!-- menu title -->
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables </li>
+                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables</li>
                     <!-- menu item Widgets-->
                     <li>
                         <a href="widgets.html"><i class="ti-blackboard"></i><span class="right-nav-text">Widgets</span>
@@ -101,14 +101,14 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="editor.html">Editor</a> </li>
-                            <li> <a href="editor-markdown.html">Editor Markdown</a> </li>
-                            <li> <a href="form-input.html">Form input</a> </li>
-                            <li> <a href="form-validation-jquery.html">form validation jquery</a> </li>
-                            <li> <a href="form-wizard.html">form wizard</a> </li>
-                            <li> <a href="form-repeater.html">form repeater</a> </li>
-                            <li> <a href="input-group.html">input group</a> </li>
-                            <li> <a href="toastr.html">toastr</a> </li>
+                            <li><a href="editor.html">Editor</a></li>
+                            <li><a href="editor-markdown.html">Editor Markdown</a></li>
+                            <li><a href="form-input.html">Form input</a></li>
+                            <li><a href="form-validation-jquery.html">form validation jquery</a></li>
+                            <li><a href="form-wizard.html">form wizard</a></li>
+                            <li><a href="form-repeater.html">form repeater</a></li>
+                            <li><a href="input-group.html">input group</a></li>
+                            <li><a href="toastr.html">toastr</a></li>
                         </ul>
                     </li>
                     <!-- menu item table -->
@@ -121,9 +121,9 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="table" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="data-html-table.html">Data html table</a> </li>
-                            <li> <a href="data-local.html">Data local</a> </li>
-                            <li> <a href="data-table.html">Data table</a> </li>
+                            <li><a href="data-html-table.html">Data html table</a></li>
+                            <li><a href="data-local.html">Data local</a></li>
+                            <li><a href="data-table.html">Data table</a></li>
                         </ul>
                     </li>
                     <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">More Pages</li>
@@ -136,17 +136,17 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="custom-page" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="projects.html">projects</a> </li>
-                            <li> <a href="project-summary.html">Projects summary</a> </li>
-                            <li> <a href="profile.html">profile</a> </li>
-                            <li> <a href="app-contacts.html">App contacts</a> </li>
-                            <li> <a href="contacts.html">Contacts</a> </li>
-                            <li> <a href="file-manager.html">file manager</a> </li>
-                            <li> <a href="invoice.html">Invoice</a> </li>
-                            <li> <a href="blank.html">Blank page</a> </li>
-                            <li> <a href="layout-container.html">layout container</a> </li>
-                            <li> <a href="error.html">Error</a> </li>
-                            <li> <a href="faqs.html">faqs</a> </li>
+                            <li><a href="projects.html">projects</a></li>
+                            <li><a href="project-summary.html">Projects summary</a></li>
+                            <li><a href="profile.html">profile</a></li>
+                            <li><a href="app-contacts.html">App contacts</a></li>
+                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="file-manager.html">file manager</a></li>
+                            <li><a href="invoice.html">Invoice</a></li>
+                            <li><a href="blank.html">Blank page</a></li>
+                            <li><a href="layout-container.html">layout container</a></li>
+                            <li><a href="error.html">Error</a></li>
+                            <li><a href="faqs.html">faqs</a></li>
                         </ul>
                     </li>
                     <!-- menu item Authentication-->
@@ -158,9 +158,9 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="authentication" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="login.html">login</a> </li>
-                            <li> <a href="register.html">register</a> </li>
-                            <li> <a href="lockscreen.html">Lock screen</a> </li>
+                            <li><a href="login.html">login</a></li>
+                            <li><a href="register.html">register</a></li>
+                            <li><a href="lockscreen.html">Lock screen</a></li>
                         </ul>
                     </li>
                     <!-- menu item maps-->
@@ -184,41 +184,44 @@
                         <ul id="multi-level" class="collapse" data-parent="#sidebarnav">
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#auth">Level
-                                    item 1<div class="pull-right"><i class="ti-plus"></i></div>
+                                    item 1
+                                    <div class="pull-right"><i class="ti-plus"></i></div>
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="auth" class="collapse">
                                     <li>
                                         <a href="javascript:void(0);" data-toggle="collapse"
                                             data-target="#login">Level
-                                            item 1.1<div class="pull-right"><i class="ti-plus"></i></div>
+                                            item 1.1
+                                            <div class="pull-right"><i class="ti-plus"></i></div>
                                             <div class="clearfix"></div>
                                         </a>
                                         <ul id="login" class="collapse">
                                             <li>
                                                 <a href="javascript:void(0);" data-toggle="collapse"
-                                                    data-target="#invoice">level item 1.1.1<div class="pull-right"><i
-                                                            class="ti-plus"></i></div>
+                                                    data-target="#invoice">level item 1.1.1
+                                                    <div class="pull-right"><i class="ti-plus"></i></div>
                                                     <div class="clearfix"></div>
                                                 </a>
                                                 <ul id="invoice" class="collapse">
-                                                    <li> <a href="#">level item 1.1.1.1</a> </li>
-                                                    <li> <a href="#">level item 1.1.1.2</a> </li>
+                                                    <li><a href="#">level item 1.1.1.1</a></li>
+                                                    <li><a href="#">level item 1.1.1.2</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li> <a href="#">level item 1.2</a> </li>
+                                    <li><a href="#">level item 1.2</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse" data-target="#error">level
-                                    item 2<div class="pull-right"><i class="ti-plus"></i></div>
+                                    item 2
+                                    <div class="pull-right"><i class="ti-plus"></i></div>
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="error" class="collapse">
-                                    <li> <a href="#">level item 2.1</a> </li>
-                                    <li> <a href="#">level item 2.2</a> </li>
+                                    <li><a href="#">level item 2.1</a></li>
+                                    <li><a href="#">level item 2.2</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -228,5 +231,3 @@
         </div>
 
         <!-- Left Sidebar End-->
-
-        <!--=================================

@@ -26,6 +26,7 @@ class GradeRequest extends FormRequest
         return [
             'Name_ar' => 'required|unique:grades,name->ar,' . $this->id,
             'Name_en' => 'required|unique:grades,name->en,' . $this->id,
+            'Notes' => 'nullable',
         ];
     }
 

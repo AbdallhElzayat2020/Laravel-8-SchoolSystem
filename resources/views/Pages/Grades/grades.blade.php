@@ -45,7 +45,7 @@
                         <table id="datatable" class="table table-striped table-bordered p-0">
                             <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>#</th>
                                 <th>{{ __('grades.Name') }}</th>
                                 <th>{{ __('grades.Notes') }}</th>
                                 <th>{{ __('grades.Processes') }}</th>

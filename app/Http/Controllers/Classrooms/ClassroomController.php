@@ -68,8 +68,13 @@ class ClassroomController extends Controller
         }
     }
 
-    public function destroy(Classroom $classroom)
+    public function destroy(Request $request)
     {
-        //
+
+        $Classrooms = Classroom::findOrFail($request->id)->delete();
+
+        toastr()->success(trans('messages.Delete'));
+
+        return redirect()->route('classrooms.index');
     }
 }

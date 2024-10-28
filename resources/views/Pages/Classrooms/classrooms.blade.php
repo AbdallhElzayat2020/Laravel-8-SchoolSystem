@@ -86,6 +86,8 @@
                                         </button>
                                     </td>
                                 </tr>
+
+
                                 <!-- edit_modal_Grade -->
                                 <div class="modal fade" id="edit{{ $class->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,10 +110,10 @@
                                                     @csrf
                                                     <div class="row">
                                                         <div class="col">
-                                                            <label for="Name"
+                                                            <label for="Name_ar"
                                                                 class="mr-sm-2">{{ trans('My_Classes_trans.Name_class') }}
                                                                 :</label>
-                                                            <input id="Class_Name" type="text" name="Name"
+                                                            <input id="Class_Name" type="text" name="Name_ar"
                                                                 class="form-control"
                                                                 value="{{ $class->getTranslation('Class_Name', 'ar') }}"
                                                                 required>
@@ -133,9 +135,10 @@
                                                             :</label>
                                                         <select class="custom-select" name="grade_id">
                                                             @foreach ($grades as $Grade)
-                                                                <option value="{{ $Grade->id }}"
-                                                                    {{ $Grade->id == $class->grade_id ? 'selected' : '' }}>
-                                                                    {{ $Grade->Name }}</option>
+                                                                <option
+                                                                    value="{{ $Grade->id }}"{{ $Grade->id == $class->grade_id ? 'selected' : '' }}>
+                                                                    {{ $Grade->Name }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
 
@@ -156,7 +159,7 @@
                                 </div>
 
                                 <!-- delete_modal_Grade -->
-                                {{-- <div class="modal fade" id="delete{{ $class->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="delete{{ $class->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -178,9 +181,10 @@
                                                     {{ trans('grades.Warning_Grade') }}
                                                     <input id="id" type="hidden" name="id"
                                                         class="form-control" value="{{ $class->id }}">
-                                                    <input id="Name" type="text" readonly name="Name"
+                                                    <input id="Name" type="text" readonly name="Name_ar"
                                                         class="form-control"
-                                                        value="{{ $class->getTranslation('Name', 'ar') }}" required>
+                                                        value="{{ $class->getTranslation('Class_Name', 'ar') }}"
+                                                        required>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">{{ trans('grades.Close') }}</button>
@@ -191,7 +195,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                             @endforeach
 
                         </tbody>

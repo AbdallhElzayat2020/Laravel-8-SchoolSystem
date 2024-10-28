@@ -51,20 +51,21 @@ class ClassroomController extends Controller
     }
 
 
-    public function show(Classroom $classroom)
+    public function update(Request $request)
     {
-        //
-    }
+        try {
+            $Classrooms = Classroom::findOrFail($request->id);
 
-    public function edit(Classroom $classroom)
-    {
-        //
-    }
+            $Classrooms->update([
+                'Class_Name' => ['ar' => $request->Name_ar, 'en' => $request->Name_en],
+                'grade_id' => $request->grade_id,
+            ]);
+            toastr()->success(trans('messages.Update'));
 
-
-    public function update(Request $request, Classroom $classroom)
-    {
-        //
+            return redirect()->route('classrooms.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     public function destroy(Classroom $classroom)

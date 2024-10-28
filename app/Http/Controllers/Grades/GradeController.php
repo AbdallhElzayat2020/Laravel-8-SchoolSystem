@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Grades;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GradeRequest;
+use App\Http\Requests\UpdateGradeRequest;
 use App\Models\Grades\Grade;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class GradeController extends Controller
 
     public function index()
     {
-        $grades = Grade::paginate(10);
+        $grades = Grade::all();
         return view('Pages.Grades.grades', compact('grades'));
     }
 
@@ -21,6 +22,7 @@ class GradeController extends Controller
     public function store(GradeRequest $request)
     {
         try {
+
             $grade = new Grade();
 
             $grade->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
@@ -40,8 +42,10 @@ class GradeController extends Controller
 
 
 
-    public function update(Request $request, $id)
+    public function update(GradeRequest $request, $id)
     {
+
+
         try {
 
             $Grades = Grade::findOrFail($request->id);

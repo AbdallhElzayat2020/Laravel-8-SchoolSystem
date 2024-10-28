@@ -87,7 +87,7 @@
                                     </td>
                                 </tr>
                                 <!-- edit_modal_Grade -->
-                                {{-- <div class="modal fade" id="edit{{ $class->id }}" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="edit{{ $class->id }}" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -111,9 +111,9 @@
                                                             <label for="Name"
                                                                 class="mr-sm-2">{{ trans('My_Classes_trans.Name_class') }}
                                                                 :</label>
-                                                            <input id="Name" type="text" name="Name"
+                                                            <input id="Class_Name" type="text" name="Name"
                                                                 class="form-control"
-                                                                value="{{ $class->getTranslation('Name', 'ar') }}"
+                                                                value="{{ $class->getTranslation('Class_Name', 'ar') }}"
                                                                 required>
                                                             <input id="id" type="hidden" name="id"
                                                                 class="form-control" value="{{ $class->id }}">
@@ -123,7 +123,7 @@
                                                                 class="mr-sm-2">{{ trans('My_Classes_trans.Name_class_en') }}
                                                                 :</label>
                                                             <input type="text" class="form-control"
-                                                                value="{{ $class->getTranslation('Name', 'en') }}"
+                                                                value="{{ $class->getTranslation('Class_Name', 'en') }}"
                                                                 name="Name_en" required>
                                                         </div>
                                                     </div><br>
@@ -153,7 +153,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
 
                                 <!-- delete_modal_Grade -->
                                 {{-- <div class="modal fade" id="delete{{ $class->id }}" tabindex="-1" role="dialog"

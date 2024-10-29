@@ -46,14 +46,25 @@
                 <button type="button" class="button x-small m-3" id="btn_delete_all">
                     {{ trans('My_Classes_trans.delete_checkbox') }}
                 </button>
+                <form action="{{ route('Filter_Classes') }}" class="m-3" method="POST">
+                    @csrf
+                    <select class="selectpicker" data-style="btn-info" name="grade_id" required
+                        onchange="this.form.submit()">
+                        <option value="" selected disabled>{{ trans('My_Classes_trans.Search_By_Grade') }}
+                        </option>
+                        @foreach ($grades as $Grade)
+                            <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
+                        @endforeach
+                    </select>
+                </form>
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped table-bordered p-0">
                         <thead>
                             <tr>
-                                {{-- <th>
+                                <th>
                                     <input name="select_all" id="example-select-all" type="checkbox"
                                         onclick="CheckAll('box1', this)" />
-                                </th> --}}
+                                </th>
                                 <th>#</th>
                                 <th>{{ trans('My_Classes_trans.Name_class') }}</th>
                                 <th>{{ trans('My_Classes_trans.Name_Grade') }}</th>
@@ -63,15 +74,15 @@
                         </thead>
                         <tbody>
 
-                            {{-- @if (isset($details))
+                            @if (isset($details))
                                 <?php $List_Classes = $details; ?>
                             @else
                                 <?php $List_Classes = $classes; ?>
-                            @endif --}}
+                            @endif
 
-                            @foreach ($classrooms as $key => $class)
+                            @foreach ($List_Classes as $key => $class)
                                 <tr>
-                                    {{-- <td><input type="checkbox" value="{{ $class->id }}" class="box1"></td> --}}
+                                    <td><input type="checkbox" value="{{ $class->id }}" class="box1"></td>
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $class->Class_Name }}</td>
                                     <td>{{ $class->Grades->Name }}</td>
@@ -131,8 +142,7 @@
                                                     </div><br>
                                                     <div class="form-group">
                                                         <label
-                                                            for="exampleFormControlTextarea1">{{ trans('My_Classes_trans.Name_Grade') }}
-                                                            :</label>
+                                                            for="exampleFormControlTextarea1">{{ trans('My_Classes_trans.Name_Grade') }}:</label>
                                                         <select class="custom-select" name="grade_id">
                                                             @foreach ($grades as $Grade)
                                                                 <option
@@ -159,8 +169,8 @@
                                 </div>
 
                                 <!-- delete_modal_Grade -->
-                                <div class="modal fade" id="delete{{ $class->id }}" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="delete{{ $class->id }}" tabindex="-1"
+                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -296,9 +306,80 @@
 
     </div>
 
+    {{-- delte select rows --}}
+    <div class="modal fade" id="delete_all" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
+                        {{ trans('My_Classes_trans.delete_class') }}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <form action="{{ route('delete_all') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        {{ trans('My_Classes_trans.Warning_Grade') }}
+                        <input class="text" type="hidden" id="delete_all_id" name="delete_all_id"
+                            value=''>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
+                        <button type="submit" class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- row closed -->
 @endsection
-@section('js')
 
+@section('js')
+<script type="text/javascript">
+    $(function() {
+        $("#btn_delete_all").click(function() {
+            var selected = new Array();
+            $("#datatable input[type=checkbox]:checked").each(function() {
+                selected.push(this.value);
+            });
+
+            if (selected.length > 0) {
+                $('#delete_all').modal('show')
+                $('input[id="delete_all_id"]').val(selected);
+            }
+
+        });
+    });
+</script>
 @endsection
+
+.filter-icon {
+position: absolute;
+top: 50%;
+left: 15px;
+transform: translateY(-50%);
+color: #6c757d;
+z-index: 1;
+}
+
+.with-icon {
+padding-left: 40px;
+}
+
+[dir="rtl"] .filter-icon {
+left: auto;
+right: 15px;
+}
+
+[dir="rtl"] .with-icon {
+padding-left: 15px;
+padding-right: 40px;
+}
+</style>

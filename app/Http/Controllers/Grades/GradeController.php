@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Grades;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GradeRequest;
-use App\Http\Requests\UpdateGradeRequest;
 use App\Models\Classrooms\Classroom;
+// use App\Models\Classrooms\Classroom;
 use App\Models\Grades\Grade;
 use Illuminate\Http\Request;
 
@@ -35,7 +35,6 @@ class GradeController extends Controller
             toastr()->success(__('messages.success'));
 
             return redirect()->route('grades.index');
-
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -53,6 +52,26 @@ class GradeController extends Controller
 
             $Grades->update([
 
+                $Grades->Name = ['ar' => $request->Name_ar, 'en' => $request->Name_en],
+
+                $Grades->Notes = $request->Notes,
+            ]);
+            toastr()->success(trans('messages.Update'));
+
+            return redirect()->route('grades.index');
+        } catch (\Exception $e) {
+
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+
+
+
+        try {
+
+            $Grades = Grade::findOrFail($request->id);
+
+            $Grades->update([
+
                 $Grades->Name = ['ar' => $request->Name, 'en' => $request->Name_en],
 
                 $Grades->Notes = $request->Notes,
@@ -60,7 +79,6 @@ class GradeController extends Controller
             toastr()->success(trans('messages.Update'));
 
             return redirect()->route('grades.index');
-
         } catch (\Exception $e) {
 
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
@@ -70,8 +88,9 @@ class GradeController extends Controller
     public function destroy(Request $request)
     {
         // check if are there any classes in this grade
-        $myClass_id = Classroom::where('grade_id', $request->id)->pluck('grade_id');
+        // $myClass_id = Classroom::where('grade_id', $request->id)->pluck('grade_id');
 
+        $myClass_id = Classroom::where('grade_id', $request->id)->pluck('grade_id');
         // if there are no classes in this grade ==  delete the grade
 
         if ($myClass_id->count() == 0) {

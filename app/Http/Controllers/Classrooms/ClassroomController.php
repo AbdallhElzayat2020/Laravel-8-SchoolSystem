@@ -15,9 +15,9 @@ class ClassroomController extends Controller
     {
         $grades = Grade::all();
 
-        $classrooms = Classroom::all();
+        $classes = Classroom::all();
 
-        return view('Pages.Classrooms.classrooms', compact('classrooms', 'grades'));
+        return view('Pages.Classrooms.classrooms', compact('classes', 'grades'));
     }
 
     public function store(StoreClassRequest $request)
@@ -36,17 +36,14 @@ class ClassroomController extends Controller
                 $My_Classes->grade_id = $List_Class['grade_id'];
 
                 $My_Classes->save();
-
             }
 
             toastr()->success(trans('messages.success'));
 
             return redirect()->route('classrooms.index');
-
         } catch (\Throwable $th) {
 
             return redirect()->back()->withErrors(['error' => $th->getMessage()]);
-
         }
     }
 
@@ -76,5 +73,25 @@ class ClassroomController extends Controller
         toastr()->success(trans('messages.Delete'));
 
         return redirect()->route('classrooms.index');
+    }
+
+    public function delete_all(Request $request)
+    {
+        $delete_all_id = explode(",", $request->delete_all_id);
+
+        Classroom::whereIn('id', $delete_all_id)->delete();
+
+        toastr()->success(__('messages.Delete'));
+
+        return redirect()->route('classrooms.index');
+    }
+
+    public function Filter_Classes(Request $request)
+    {
+        $grades = Grade::all();
+
+        $Search = Classroom::select('*')->where('grade_id', '=', $request->grade_id)->get();
+
+        return view('Pages.Classrooms.classrooms', compact('grades'))->withDetails($Search);
     }
 }

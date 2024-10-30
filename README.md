@@ -23,6 +23,7 @@ updated_at
 الصف الاول اولي اول وتاني وهكذا
 صف اول اعدادي
 وصف اول ثانوي
+
 sections table [
 id
 section_name

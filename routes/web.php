@@ -3,6 +3,7 @@
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Sections\SectionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -24,15 +25,21 @@ Route::group(
     function () {
         // Dashboard
         Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
-        // Grades
+        // Grades Route
         Route::resource('grades', GradeController::class);
 
-        // Classrooms
+        // start  Classrooms Route
         Route::resource('classrooms', ClassroomController::class);
         // Filter Classes
         Route::post('Filter_Classes', [ClassroomController::class, 'Filter_Classes'])->name('Filter_Classes');
 
         Route::post('delete_all', [ClassroomController::class, 'delete_all'])->name('delete_all');
+        // End Classrooms Route
+
+        // Sections Route
+        Route::resource('sections', SectionController::class);
+
+        Route::get("classes/{id}", [SectionController::class, 'getClasses'])->name('getClasses');
         // add_parent
         Route::view('add_parent', 'livewire.show_Form');
     }

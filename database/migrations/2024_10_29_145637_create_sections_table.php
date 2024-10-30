@@ -11,14 +11,15 @@ class CreateSectionsTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->string('Section_Name');
+            $table->string('Section_Name', 255);
             $table->integer('Status');
-            $table->foreignId('class_id')->constrained('classrooms')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('grade_id')->constrained('grades')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('class_id')->constrained('classrooms')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

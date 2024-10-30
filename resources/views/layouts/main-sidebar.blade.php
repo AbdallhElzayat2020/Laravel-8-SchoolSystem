@@ -47,13 +47,14 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections">
                             <div class="pull-left"><i class="ti-palette"></i><span
-                                    class="right-nav-text">{{ __('section.title_page') }}</span></div>
+                                    class="right-nav-text">{{ __('Sections_trans.title_page') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="sections" class="collapse" data-parent="#sidebarnav">
-                            <li><a href=""><i class="ti-menu-alt"></i><span
-                                        class="right-nav-text">{{ __('section.List_Grade') }}</span> </a></li>
+                            <li><a href="{{ route('sections.index') }}"><i class="ti-menu-alt"></i><span
+                                        class="right-nav-text">{{ __('Sections_trans.List_sections') }}</span> </a>
+                            </li>
 
                         </ul>
                     </li>

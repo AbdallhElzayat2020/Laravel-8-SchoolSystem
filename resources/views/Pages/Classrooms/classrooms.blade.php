@@ -46,7 +46,7 @@
                 <button type="button" class="button x-small m-3" id="btn_delete_all">
                     {{ trans('My_Classes_trans.delete_checkbox') }}
                 </button>
-                <form action="{{ route('Filter_Classes') }}" class="m-3" method="POST">
+                {{-- <form action="{{ route('Filter_Classes') }}" class="m-3" method="POST">
                     @csrf
                     <select class="selectpicker" data-style="btn-info" name="grade_id" required
                         onchange="this.form.submit()">
@@ -56,7 +56,7 @@
                             <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
                         @endforeach
                     </select>
-                </form>
+                </form> --}}
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped table-bordered p-0">
                         <thead>
@@ -97,7 +97,6 @@
                                         </button>
                                     </td>
                                 </tr>
-
 
                                 <!-- edit_modal_Grade -->
                                 <div class="modal fade" id="edit{{ $class->id }}" tabindex="-1" role="dialog"
@@ -169,8 +168,8 @@
                                 </div>
 
                                 <!-- delete_modal_Grade -->
-                                <div class="modal fade" id="delete{{ $class->id }}" tabindex="-1"
-                                    role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="delete{{ $class->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">

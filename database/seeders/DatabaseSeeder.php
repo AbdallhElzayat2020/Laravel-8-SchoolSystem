@@ -13,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Create Seeder Blood and Nationalities
+        $this->call(BloodSeeder::class);
+
+        $this->call(NationalitiesSeeder::class);
+
+        $this->call(ReligionSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

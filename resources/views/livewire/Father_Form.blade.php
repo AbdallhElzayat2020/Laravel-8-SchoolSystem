@@ -128,7 +128,7 @@
             @enderror
         </div>
 
-        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit"
+        <button class="btn btn-success btn-sm mx-3 nextBtn btn-lg pull-right" wire:click="firstStepSubmit"
             type="button">{{ trans('Parent_trans.Next') }}
         </button>
 

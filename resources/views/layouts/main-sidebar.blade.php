@@ -68,7 +68,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="">{{ __('language.List_Parents') }}</a></li>
+                            {{-- <li><a href="">{{ __('language.List_Parents') }}</a></li> --}}
                             <li><a href="{{ url('add_parent') }}">{{ __('language.Add_Parent') }}</a></li>
                         </ul>
                     </li>

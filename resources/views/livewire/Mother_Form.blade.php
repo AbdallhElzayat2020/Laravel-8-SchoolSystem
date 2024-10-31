@@ -111,11 +111,11 @@
             @enderror
         </div>
 
-        <button class="btn btn-danger btn-sm nextBtn btn-lg pull-right" type="button" wire:click="back(1)">
+        <button class="btn btn-danger btn-sm mx-3 nextBtn btn-lg pull-right" type="button" wire:click="back(1)">
             {{ trans('Parent_trans.Back') }}
         </button>
 
-        <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="button"
+        <button class="btn btn-success btn-sm mx-3 nextBtn btn-lg pull-right" type="button"
             wire:click="secondStepSubmit">{{ trans('Parent_trans.Next') }}</button>
 
     </div>

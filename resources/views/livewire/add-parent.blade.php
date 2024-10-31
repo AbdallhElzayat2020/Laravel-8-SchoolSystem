@@ -5,6 +5,14 @@
             {{ $successMessage }}
         </div>
     @endif
+    {{-- Catch error  --}}
+    @if ($catchError)
+        <div class="alert alert-danger" id="success-danger">
+            <button type="button" class="close" data-dismiss="alert">x</button>
+            {{ $catchError }}
+        </div>
+    @endif
+
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
@@ -25,8 +33,13 @@
             </div>
         </div>
     </div>
+
+
     @include('livewire.Father_Form')
     @include('livewire.Mother_Form')
+
+
+    {{-- Confiem Page3  --}}
     <div class="row setup-content {{ $currentStep != 3 ? 'displayNone' : '' }}" id="step-3">
         @if ($currentStep != 3)
             <div style="display: none" class="row setup-content" id="step-3">
@@ -34,10 +47,10 @@
         <div class="col-xs-12">`
             <div class="col-md-12">
                 <h3 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من حفظ البيانات ؟</h3><br>
-                <button class="btn  btn-danger mx-3 nextBtn btn-lg pull-right" type="button"
+                <button class="btn  btn-danger mx-3 nextBtn btn-sm   pull-right" type="button"
                     wire:click="back(2)">{{ trans('Parent_trans.Back') }}
                 </button>
-                <button class="btn  btn-success mx-3 btn-lg pull-right" wire:click="submitForm"
+                <button class="btn  btn-success mx-3 btn-sm pull-right" wire:click="submitForm"
                     type="button">{{ trans('Parent_trans.Finish') }}
                 </button>
             </div>

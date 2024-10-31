@@ -161,7 +161,7 @@
                                                                                 @else
                                                                                     <input type="checkbox"
                                                                                         class="form-check-input"
-                                                                                        name="status" id="exampleCheck1">
+                                                                                        name="Status" id="exampleCheck1">
                                                                                 @endif
                                                                                 <label class="form-check-label"
                                                                                     for="exampleCheck1">{{ trans('Sections_trans.Status') }}</label><br>

@@ -25,6 +25,9 @@
 </div>
 <!-- row closed -->
 @endsection
+
 @section('js')
+
 @livewireScripts
+
 @endsection

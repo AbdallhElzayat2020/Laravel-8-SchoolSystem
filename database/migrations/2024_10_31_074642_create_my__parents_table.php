@@ -23,9 +23,9 @@ class CreateMyParentsTable extends Migration
             $table->string('Passport_ID_Father'); // Passport
             $table->string('Job_Father');
             $table->string('Phone_Father');
-            // $table->foreignId('Nationality_Father_id')->constrained('nationalities')->cascadeOnDelete()->cascadeOnUpdate();
-            // $table->foreignId('Blood_Type_Father_id')->constrained('type__blodes')->cascadeOnDelete()->cascadeOnUpdate();
-            // $table->foreignId('Religion_Father_id')->constrained('religions')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('Nationality_Father_id')->constrained('nationalities')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('Blood_Type_Father_id')->constrained('type__bloods')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('Religion_Father_id')->constrained('religions')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Address_Father');
             //Mother Information
             $table->string('Name_Mother');
@@ -33,9 +33,9 @@ class CreateMyParentsTable extends Migration
             $table->string('Passport_ID_Mother'); // Passport
             $table->string('Phone_Mother');
             $table->string('Job_Mother');
-            // $table->foreignId('Nationality_Mother_id')->constrained('nationalities')->cascadeOnDelete()->cascadeOnUpdate();
-            // $table->foreignId('Blood_Type_Mother_id')->constrained('type__blodes')->cascadeOnDelete()->cascadeOnUpdate();
-            // $table->foreignId('Religion_Mother_id')->constrained('religions')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('Nationality_Mother_id')->constrained('nationalities')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('Blood_Type_Mother_id')->constrained('type__bloods')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('Religion_Mother_id')->constrained('religions')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('Address_Mother');
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParentAttchmentsTable extends Migration
+class CreateParentAttachmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateParentAttchmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('parent_attchments', function (Blueprint $table) {
+        Schema::create('parent_attachments', function (Blueprint $table) {
             $table->id();
-            $table->longText('file_name')->nullable();
+            $table->text('file_name')->nullable();
             $table->foreignId('parent_id')->constrained('my__parents')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateParentAttchmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parent_attchments');
+        Schema::dropIfExists('parent_attachments');
     }
 }

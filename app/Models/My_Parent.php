@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\ParentAttchments\ParentAttchment;
+use App\Models\ParentAttachment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
@@ -17,8 +17,8 @@ class My_Parent extends Model
     protected $table = 'my__parents';
 
     protected $guarded = [];
-    // public function attachments()
-    // {
-    //     return $this->hasMany(ParentAttchment::class, 'parent_id');
-    // }
+    public function attachments()
+    {
+        return $this->hasMany(ParentAttachment::class, 'parent_id');
+    }
 }

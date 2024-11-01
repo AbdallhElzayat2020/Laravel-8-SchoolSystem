@@ -4,16 +4,19 @@ namespace App\Http\Livewire;
 
 use App\Models\My_Parent;
 use App\Models\Nationalitie;
+use App\Models\ParentAttchments\ParentAttchment;
 use App\Models\Religion;
 use App\Models\Type_Blood;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class AddParent extends Component
 {
+    use WithFileUploads;
     public $successMessage = '';
 
-    public $catchError;
+    public $catchError, $photos, $updateMode = false;
     // public $catchError, $updateMode = false, $photos, $show_table = true, $Parent_id;
 
 
@@ -161,8 +164,23 @@ class AddParent extends Component
 
             $My_Parent->save();
 
-            $this->successMessage = trans('messages.success');
 
+            if (!empty($this->photos)) {
+
+                foreach ($this->photos as $photo) {
+
+                    $photo->storeAs($this->Name_Father, $photo->getClientOriginalName(), $disk = 'parent_attachments');
+
+                    ParentAttchment::create([
+
+                        'file_name' => $photo->getClientOriginalName(),
+
+                        'parent_id' => My_Parent::latest()->first()->id,
+                    ]);
+                }
+            }
+
+            $this->successMessage = trans('messages.success');
             $this->clearForm();
 
             $this->currentStep = 1;

@@ -44,16 +44,34 @@
         @if ($currentStep != 3)
             <div style="display: none" class="row setup-content" id="step-3">
         @endif
-        <div class="col-xs-12">`
-            <div class="col-md-12">
-                <h3 style="font-family: 'Cairo', sans-serif;">هل انت متاكد من حفظ البيانات ؟</h3><br>
-                <button class="btn  btn-danger mx-3 nextBtn btn-sm   pull-right" type="button"
-                    wire:click="back(2)">{{ trans('Parent_trans.Back') }}
-                </button>
-                <button class="btn  btn-success mx-3 btn-sm pull-right" wire:click="submitForm"
-                    type="button">{{ trans('Parent_trans.Finish') }}
-                </button>
+
+        <div class="col-xs-12">
+            <div class="col-md-12"><br>
+                <label style="color: red">{{ trans('Parent_trans.Attachments') }}</label>
+
+                <div class="form-group">
+                    <input type="file" wire:model="photos" accept="image/*" multiple>
+                </div>
+
+                <br>
+
+                {{-- <input type="hidden" wire:model="Parent_id"> --}}
+
+                <button class="btn mx-1 btn-danger btn-sm nextBtn pull-right" type="button"
+                    wire:click="back(2)">{{ trans('Parent_trans.Back') }}</button>
+
+                @if ($updateMode)
+                    <button class="btn mx-1 btn-success btn-sm nextBtn  pull-right" wire:click="submitForm_edit"
+                        type="button">{{ trans('Parent_trans.Finish') }}
+                    </button>
+                @else
+                    <button class="btn mx-1 btn-success btn-sm  pull-right" wire:click="submitForm"
+                        type="button">{{ trans('Parent_trans.Finish') }}
+                    </button>
+                @endif
+
             </div>
         </div>
     </div>
+
 </div>

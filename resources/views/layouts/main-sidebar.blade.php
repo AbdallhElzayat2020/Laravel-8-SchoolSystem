@@ -6,7 +6,7 @@
                 <ul class="nav navbar-nav side-menu" id="sidebarnav">
                     <!-- menu item Dashboard-->
                     <li>
-                        <a href="" data-toggle="collapse" data-target="#dashboard">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard">
                             <div class="pull-left"><i class="ti-home"></i><span
                                     class="right-nav-text">{{ __('language.dashboard') }}</span>
                             </div>
@@ -17,7 +17,9 @@
                             <li><a href="">{{ __('language.Dashboard_page') }}</a></li>
                         </ul>
                     </li>
-                    <!-- menu item Elements-->
+
+
+                    {{-- Grades List --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements">
                             <div class="pull-left"><i class="ti-palette"></i><span
@@ -29,7 +31,8 @@
                             <li><a href="{{ route('grades.index') }}">{{ __('language.Grades_list') }}</a></li>
                         </ul>
                     </li>
-                    <!-- menu item calendar-->
+
+                    {{-- Classes List --}}
                     <li>
                         <a href="javascript:void(0)" data-toggle="collapse" data-target="#calendar-menu">
                             <div class="pull-left"><i class="ti-calendar"></i><span
@@ -42,8 +45,8 @@
                                 </a></li>
                         </ul>
                     </li>
-                    <!-- menu item todo-->
 
+                    {{-- Sections List --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections">
                             <div class="pull-left"><i class="ti-palette"></i><span
@@ -60,6 +63,7 @@
                     </li>
 
 
+                    {{-- Parents List --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
                             <div class="pull-left"><i class="ti-pie-chart"></i><span
@@ -71,18 +75,21 @@
                             <li><a href="{{ url('add_parent') }}">{{ __('language.List_Parents') }}</a></li>
                         </ul>
                     </li>
-                    <!-- menu font icon-->
+
+
+
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-                            <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">font
-                                    icon</span></div>
+                            <div class="pull-left"><i class="ti-home"></i>
+                                <span class="right-nav-text">
+                                    {{ __('language.Teachers') }}
+                                </span>
+                            </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="fontawesome-icon.html">font Awesome</a></li>
-                            <li><a href="themify-icons.html">Themify icons</a></li>
-                            <li><a href="weather-icon.html">Weather icons</a></li>
+                            <li><a href="{{ route('teachers.index') }}">{{ __('language.List_Teachers') }}</a></li>
                         </ul>
                     </li>
                     <!-- menu title -->
@@ -228,6 +235,75 @@
                     </li>
                 </ul>
             </div>
+
+
+
+
+
+            <!-- Start About -->
+            <div class="about">
+                <div class="container">
+                    <h2 class="special-heading">About</h2>
+                    <p>Less is more work</p>
+                    <div class="about-content">
+                        <div class="image">
+                            <img decoding="async" src="images/about.jpg" alt="" />
+                        </div>
+                        <div class="text">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil nemo neque voluptate
+                                tempora velit cum non,
+                                fuga vitae architecto delectus sed maxime rerum impedit aliquam obcaecati, aut excepturi
+                                iusto laudantium!
+                            </p>
+                            <hr />
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, sapiente. Velit iure
+                                exercitationem
+                                dolores nesciunt dolore. Eum officiis dolorum hic voluptate quaerat minima, similique
+                                inventore esse,
+                                alias, sed quo officia?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Start About -->
+            <div class="about">
+                <div class="container">
+                    <h2 class="specile-heading">About</h2>
+                    <p>Less is more work</p>
+                    <div class="about-content">
+                        <div class="image">
+                            <img src="./images/about.jpg" alt="">
+                        </div>
+                        <div class="text">
+                            <p>
+                                “Work less and do more” refers to the idea of optimizing productivity by focusing on
+                                efficiency rather than
+                                quantity. The goal is to achieve greater outcomes without overextending oneself, often
+                                by prioritizing,
+                                automating, and streamlining tasks.
+                            </p>
+                            <hr>
+                            <p>
+                                “Work less and do more” refers to the idea of optimizing productivity by focusing on
+                                efficiency rather than quantity. The goal is to achieve greater outcomes without
+                                overextending oneself, often by prioritizing, automating, and streamlining tasks.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End About -->
+
+
+
+
+            <!-- End About -->
         </div>
 
         <!-- Left Sidebar End-->

@@ -10,5 +10,6 @@ class ParentAttachment extends Model
     use HasFactory;
 
     protected $table = 'parent_attachments';
+
     protected $fillable = ['parent_id', 'file_name'];
 }

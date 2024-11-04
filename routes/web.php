@@ -49,6 +49,6 @@ Route::group(
         Route::resource('parents', My_ParentController::class);
 
         // Teacher Routes
-        Route::resource('teachers', TeacherController::class);
+        Route::resource('Teachers', TeacherController::class);
     }
 );

@@ -15,7 +15,7 @@ class specializationsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('type__bloods')->delete();
+        DB::table('specializations')->delete();
         $specializations = [
             ['en' => 'Arabic', 'ar' => 'عربي'],
             ['en' => 'English', 'ar' => 'انجليزي'],
@@ -37,6 +37,13 @@ class specializationsSeeder extends Seeder
             ['en' => 'Art', 'ar' => 'فن'],
             ['en' => 'Biology', 'ar' => 'احياء']
         ];
+
+
+        // foreach ($specializations as $specializations) {
+        //     // استخدام التنسيق 'en: name, ar: name' لتخزينها في عمود string
+        //     $name = json_encode($specializations); // تحويل المصفوفة إلى سلسلة JSON
+        //     Specialization::create(['Name' => $name]); // تخزينها كقيمة نصية
+        // }
 
         foreach ($specializations as $specialization) {
             Specialization::create(['Name' => $specialization]);

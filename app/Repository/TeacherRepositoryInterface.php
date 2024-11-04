@@ -15,8 +15,11 @@ interface TeacherRepositoryInterface
     public function GetGenders();
     // storeTeachers
     public function storeTeachers($request);
+    //Edit Teachers
+    public function EditTeachers($id);
     //UpdateTeachers
     public function UpdateTeachers($request);
-    //DeleteTeachers
-    public function destroyTeachers($request);
+
+    // DeleteTeachers
+    public function DeleteTeachers($request);
 }

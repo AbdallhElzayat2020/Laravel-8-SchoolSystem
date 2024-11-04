@@ -89,7 +89,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{ route('teachers.index') }}">{{ __('language.List_Teachers') }}</a></li>
+                            <li><a href="{{ route('Teachers.index') }}">{{ __('language.List_Teachers') }}</a></li>
                         </ul>
                     </li>
                     <!-- menu title -->

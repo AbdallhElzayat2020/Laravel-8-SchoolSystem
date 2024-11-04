@@ -16,7 +16,7 @@ class GenderSeeder extends Seeder
     public function run()
     {
 
-        DB::table('type__bloods')->delete();
+        DB::table('genders')->delete();
 
         $genders = [
             ['en' => 'male', 'ar' => 'ذكر'],

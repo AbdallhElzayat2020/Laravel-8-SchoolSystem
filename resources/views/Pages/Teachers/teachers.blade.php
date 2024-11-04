@@ -20,7 +20,7 @@
                 <div class="col-xl-12 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
-                            <a href="{{ route('teachers.create') }}" class="btn btn-success btn-sm" role="button"
+                            <a href="{{ route('Teachers.create') }}" class="btn btn-success btn-sm" role="button"
                                 aria-pressed="true">{{ trans('Teacher_trans.Add_Teacher') }}</a><br><br>
                             <div class="table-responsive">
                                 <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -52,12 +52,12 @@
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                         data-toggle="modal"
                                                         data-target="#delete_Teacher{{ $Teacher->id }}"
-                                                        title="{{ trans('Grades_trans.Delete') }}"><i
-                                                            class="fa fa-trash"></i>
+                                                        title="{{ trans('Grades_trans.Delete') }}">
+                                                        <i class="fa fa-trash"></i>
                                                     </button>
                                                 </td>
                                             </tr>
-
+                                            {{-- Delete Model --}}
                                             <div class="modal fade" id="delete_Teacher{{ $Teacher->id }}"
                                                 tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                                 aria-hidden="true">
@@ -84,9 +84,11 @@
                                                             <div class="modal-footer">
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
+                                                                        data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}
+                                                                    </button>
                                                                     <button type="submit"
-                                                                        class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
+                                                                        class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -94,6 +96,7 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

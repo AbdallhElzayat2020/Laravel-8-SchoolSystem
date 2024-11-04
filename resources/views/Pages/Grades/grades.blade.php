@@ -15,7 +15,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-                    <li class="breadcrumb-item"><a href="{{ url('/') }}" class="default-color">{{ __('language.Grades') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}"
+                            class="default-color">{{ __('language.Grades') }}</a></li>
                     <li class="breadcrumb-item active">{{ __('language.Grades_list') }}</li>
                 </ol>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Models\Teacher;
 
 use App\Models\Genders\Gender;
+use App\Models\Sections\Section;
 use App\Models\Specializations\Specialization;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,7 @@ class Teacher extends Model
     public $translatable = ['Name'];
 
     protected $guarded = [];
+
     // protected $fillable = [
     //     'Email',
     //     'Password',
@@ -35,6 +37,11 @@ class Teacher extends Model
     public function specializations()
     {
         return $this->belongsTo(Specialization::class, 'Specialization_id');
+    }
+
+    public function sections()
+    {
+        return $this->belongsToMany(Section::class, 'teacher_section');
     }
     // protected $guarded = [];
 }

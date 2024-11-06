@@ -150,6 +150,31 @@
                                                                             </select>
                                                                         </div>
                                                                         <br>
+                                                                        <div class="col">
+                                                                            <label for="inputName"
+                                                                                class="control-label">{{ trans('Sections_trans.Name_Teacher') }}</label>
+                                                                            <select multiple name="teacher_id[]"
+                                                                                class="form-control"
+                                                                                id="exampleFormControlSelect2">
+                                                                                {{-- Selected Teachers --}}
+                                                                                @foreach ($list_Sections->teachers as $teacher)
+                                                                                    <option selected
+                                                                                        value="{{ $teacher['id'] }}">
+                                                                                        {{ $teacher['Name'] }} (معين
+                                                                                        حالياً)
+                                                                                    </option>
+                                                                                @endforeach
+
+                                                                                {{-- Available Teachers (excluding already selected ones) --}}
+                                                                                @foreach ($teachers as $teacher)
+                                                                                    @unless ($list_Sections->teachers->contains('id', $teacher->id))
+                                                                                        <option value="{{ $teacher->id }}">
+                                                                                            {{ $teacher->Name }}
+                                                                                        </option>
+                                                                                    @endunless
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
 
                                                                         <div class="col">
                                                                             <div class="form-check">
@@ -167,6 +192,7 @@
                                                                                     for="exampleCheck1">{{ trans('Sections_trans.Status') }}</label><br>
                                                                             </div>
                                                                         </div>
+                                                                        <br />
                                                                         <div class="modal-footer">
                                                                             <button type="button"
                                                                                 class="btn btn-secondary"
@@ -274,6 +300,16 @@
                                 <label for="inputName"
                                     class="control-label">{{ trans('Sections_trans.Name_Class') }}</label>
                                 <select name="class_id" class="custom-select" required>
+                                </select>
+                            </div>
+                            <br />
+                            <div class="col">
+                                <label for="inputName"
+                                    class="control-label">{{ trans('Sections_trans.Name_Teacher') }}</label>
+                                <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
+                                    @foreach ($teachers as $teacher)
+                                        <option class="my-1" value="{{ $teacher->id }}">{{ $teacher->Name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="modal-footer">

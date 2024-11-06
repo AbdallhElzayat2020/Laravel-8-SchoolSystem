@@ -3,7 +3,7 @@
 namespace App\Models\Sections;
 
 use App\Models\Classrooms\Classroom;
-
+use App\Models\Teacher\Teacher;
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,5 +25,10 @@ class Section extends Model
     public function Classes()
     {
         return $this->belongsTo(Classroom::class, 'class_id');
+    }
+
+    public function teachers()
+    {
+        return $this->belongsToMany(Teacher::class, 'teacher_section');
     }
 }

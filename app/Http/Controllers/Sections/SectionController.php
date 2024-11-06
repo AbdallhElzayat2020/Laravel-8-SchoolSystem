@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSectionRequest;
 use App\Models\Classrooms\Classroom;
 use App\Models\Grades\Grade;
 use App\Models\Sections\Section;
+use App\Models\Teacher\Teacher;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -20,19 +21,14 @@ class SectionController extends Controller
     {
         $grades = Grade::with(['Sections'])->get();
 
+        $teachers = Teacher::all();
+
         $list_Grades = Grade::all();
 
-        return view('Pages.Sections.sections', compact('grades', 'list_Grades'));
-        // return view('Pages.Sections.sections');
+        return view('Pages.Sections.sections', compact('grades', 'list_Grades', 'teachers'));
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreSectionRequest $request)
     {
 
@@ -43,7 +39,7 @@ class SectionController extends Controller
             $sections->class_id = $request->class_id;
             $sections->Status = 1;
             $sections->save();
-
+            $sections->teachers()->attach($request->teacher_id);
             toastr()->success(trans('messages.success'));
 
             return redirect()->route('sections.index');
@@ -53,13 +49,7 @@ class SectionController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(StoreSectionRequest $request)
     {
         try {
@@ -67,11 +57,19 @@ class SectionController extends Controller
             $section->Section_Name = ['en' => $request->Name_Section_En, 'ar' => $request->Name_Section_Ar];
             $section->grade_id = $request->grade_id;
             $section->class_id = $request->class_id;
-            if (isset($request->status)) {
+            if (isset($request->Status)) {
                 $section->Status = 1;
             } else {
                 $section->Status = 2;
             }
+
+            // update pivot tABLE
+            if (isset($request->teacher_id)) {
+                $section->teachers()->sync($request->teacher_id);
+            } else {
+                $section->teachers()->sync(array());
+            }
+
             $section->save();
 
             toastr()->success(trans('messages.Update'));
@@ -82,12 +80,6 @@ class SectionController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         Section::findOrFail($request->id)->delete();

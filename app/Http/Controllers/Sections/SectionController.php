@@ -63,7 +63,7 @@ class SectionController extends Controller
                 $section->Status = 2;
             }
 
-            // update pivot tABLE
+            // update pivot Table
             if (isset($request->teacher_id)) {
                 $section->teachers()->sync($request->teacher_id);
             } else {
@@ -83,7 +83,9 @@ class SectionController extends Controller
     public function destroy(Request $request)
     {
         Section::findOrFail($request->id)->delete();
+
         toastr()->success(trans('messages.Delete'));
+
         return redirect()->route('sections.index');
     }
     public function getClasses($id)

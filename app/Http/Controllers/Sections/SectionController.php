@@ -34,12 +34,19 @@ class SectionController extends Controller
 
         try {
             $sections = new Section();
+
             $sections->Section_Name = ['en' => $request->Name_Section_En, 'ar' => $request->Name_Section_Ar];
+
             $sections->grade_id = $request->grade_id;
+
             $sections->class_id = $request->class_id;
+
             $sections->Status = 1;
+
             $sections->save();
+            // insert in pivot Table
             $sections->teachers()->attach($request->teacher_id);
+
             toastr()->success(trans('messages.success'));
 
             return redirect()->route('sections.index');
@@ -49,22 +56,28 @@ class SectionController extends Controller
     }
 
 
-
     public function update(StoreSectionRequest $request)
     {
         try {
             $section = Section::findOrFail($request->id);
+
             $section->Section_Name = ['en' => $request->Name_Section_En, 'ar' => $request->Name_Section_Ar];
+
             $section->grade_id = $request->grade_id;
+
             $section->class_id = $request->class_id;
+
             if (isset($request->Status)) {
+
                 $section->Status = 1;
             } else {
+
                 $section->Status = 2;
             }
 
             // update pivot Table
             if (isset($request->teacher_id)) {
+
                 $section->teachers()->sync($request->teacher_id);
             } else {
                 $section->teachers()->sync(array());

@@ -160,7 +160,7 @@
                                                                                 @foreach ($list_Sections->teachers as $teacher)
                                                                                     <option selected
                                                                                         value="{{ $teacher['id'] }}">
-                                                                                        {{ $teacher['Name'] }} (معين
+                                                                                        {{ $teacher->Name }} (معين
                                                                                         حالياً)
                                                                                     </option>
                                                                                 @endforeach
@@ -234,9 +234,11 @@
                                                                         <div class="modal-footer">
                                                                             <button type="button"
                                                                                 class="btn btn-secondary"
-                                                                                data-dismiss="modal">{{ trans('Sections_trans.Close') }}</button>
+                                                                                data-dismiss="modal">{{ trans('Sections_trans.Close') }}
+                                                                            </button>
                                                                             <button type="submit"
-                                                                                class="btn btn-danger">{{ trans('Sections_trans.submit') }}</button>
+                                                                                class="btn btn-danger">{{ trans('Sections_trans.submit') }}
+                                                                            </button>
                                                                         </div>
                                                                     </form>
                                                                 </div>
@@ -308,7 +310,7 @@
                                     class="control-label">{{ trans('Sections_trans.Name_Teacher') }}</label>
                                 <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2">
                                     @foreach ($teachers as $teacher)
-                                        <option class="my-1" value="{{ $teacher->id }}">{{ $teacher->Name }}</option>
+                                        <option class="my-2" value="{{ $teacher->id }}">{{ $teacher->Name }}</option>
                                     @endforeach
                                 </select>
                             </div>

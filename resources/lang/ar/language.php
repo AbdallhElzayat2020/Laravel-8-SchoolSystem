@@ -11,7 +11,7 @@ return [
     'Grades_list' => 'قائمة المراحل الدراسية',
     'classes' => 'الصفوف',
     'List_classes' => 'قائمة الصفوف الدراسية',
-    'sections' => 'الاقسام',
+    'sections' => 'الاقسام || الفصل الدراسي',
     'List_sections' => 'قائمة الاقسام الدراسية',
     'students' => 'الطلاب',
     'Student_information' => 'معلومات الطلاب',

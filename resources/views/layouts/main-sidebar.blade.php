@@ -76,7 +76,7 @@
                         </ul>
                     </li>
 
-
+                    {{-- List_Teachers --}}
 
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
@@ -92,30 +92,22 @@
                             <li><a href="{{ route('Teachers.index') }}">{{ __('language.List_Teachers') }}</a></li>
                         </ul>
                     </li>
-                    <!-- menu title -->
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables</li>
-                    <!-- menu item Widgets-->
-                    <li>
-                        <a href="widgets.html"><i class="ti-blackboard"></i><span class="right-nav-text">Widgets</span>
-                            <span class="badge badge-pill badge-danger float-right mt-1">59</span> </a>
-                    </li>
-                    <!-- menu item Form-->
+
+                    {{-- List_Students --}}
+
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">
-                            <div class="pull-left"><i class="ti-files"></i><span class="right-nav-text">Form &
-                                    Editor</span></div>
+                            <div class="pull-left"><i class="ti-files"></i>
+                                <span class="right-nav-text">
+                                    {{ __('language.students') }}
+                                </span>
+                            </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="editor.html">Editor</a></li>
-                            <li><a href="editor-markdown.html">Editor Markdown</a></li>
-                            <li><a href="form-input.html">Form input</a></li>
-                            <li><a href="form-validation-jquery.html">form validation jquery</a></li>
-                            <li><a href="form-wizard.html">form wizard</a></li>
-                            <li><a href="form-repeater.html">form repeater</a></li>
-                            <li><a href="input-group.html">input group</a></li>
-                            <li><a href="toastr.html">toastr</a></li>
+                            <li><a href="{{ route('students.index') }}">{{ __('language.list_students') }}</a></li>
+
                         </ul>
                     </li>
                     <!-- menu item table -->

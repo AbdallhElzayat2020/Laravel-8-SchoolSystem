@@ -17,12 +17,17 @@ class StudentController extends Controller
     }
 
 
-    //Get Classes
+    //Get classrooms
     public function Get_classrooms($id)
     {
-        $this->student->Get_classrooms($id);
+        return $this->student->Get_classrooms($id);
     }
 
+    //Get Sections
+    public function Get_Sections($id)
+    {
+        return $this->student->Get_Sections($id);
+    }
 
 
     public function index()
@@ -35,16 +40,6 @@ class StudentController extends Controller
     {
         return $this->student->createStudent();
     }
-
-    // Get_Sections
-    // public function Get_Sections($id)
-    // {
-    //     $this->student->Get_Sections($id);
-    // }
-
-
-
-
 
     public function store(Request $request)
     {

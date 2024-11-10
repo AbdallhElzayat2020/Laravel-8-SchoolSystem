@@ -28,20 +28,18 @@ class StudentRepository implements StudentRepositoryInterface
     }
 
 
-
     //Get_classrooms
     public function Get_classrooms($id)
     {
-        $list_classes = Classroom::where("Grade_id", $id)->pluck("Name_Class", "id");
-
-        return $list_classes;
+        $list_classes = Classroom::where("grade_id", $id)->pluck("Class_Name", "id");
+        return json_encode($list_classes);
     }
 
-    //Get Sections
+    // Get Sections
     public function Get_Sections($id)
     {
-
-        $list_sections = Section::where("Class_id", $id)->pluck("Name_Section", "id");
-        return $list_sections;
+        $list_sections = Section::where('class_id', $id)->pluck('Section_Name', 'id');
+        // return $list_sections;
+        return ($list_sections);
     }
 }

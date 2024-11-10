@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('css')
-    @toastr_css
 @section('title')
     {{ trans('language.add_student') }}
 @stop
@@ -141,14 +140,18 @@
                             <div class="form-group">
                                 <label for="Classroom_id">{{ trans('Students_trans.classrooms') }} : <span
                                         class="text-danger">*</span></label>
-                                <select class="custom-select mr-sm-2" name="Classroom_id"></select>
+                                <select class="custom-select mr-sm-2" name="Classroom_id">
+
+                                </select>
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="section_id">{{ trans('Students_trans.section') }} : </label>
-                                <select class="custom-select mr-sm-2" name="section_id"></select>
+                                <select class="custom-select mr-sm-2" name="section_id">
+
+                                </select>
                             </div>
                         </div>
 
@@ -192,8 +195,7 @@
 <!-- row closed -->
 @endsection
 @section('js')
-@toastr_js
-@toastr_render
+
 <script>
     $(document).ready(function() {
         $('select[name="Grade_id"]').on('change', function() {
@@ -205,10 +207,10 @@
                     dataType: "json",
                     success: function(data) {
                         $('select[name="Classroom_id"]').empty();
+                        $('select[name="Classroom_id"]').append(
+                            '<option selected disabled >{{ trans('Parent_trans.Choose') }}...</option>'
+                        );
                         $.each(data, function(key, value) {
-                            $('select[name="Classroom_id"]').append(
-                                '<option selected disabled >{{ trans('Parent_trans.Choose') }}...</option>'
-                            );
                             $('select[name="Classroom_id"]').append(
                                 '<option value="' + key + '">' + value +
                                 '</option>');

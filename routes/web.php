@@ -54,11 +54,12 @@ Route::group(
 
         // Students Route
         Route::resource('Students', StudentController::class);
+        Route::get('Get_classrooms/{id}', [StudentController::class, 'Get_classrooms']);
+        Route::get('Get_Sections/{id}', [StudentController::class, 'Get_Sections']);
 
-
-        Route::get('Get_classrooms', [StudentController::class, 'Get_classrooms'])->name('Get_classrooms');
         // Route::get('Get_classrooms/{id}', [studentController::class, 'Get_classrooms']);
-
+        // Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
+        // Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
 
         // Route::get('Get_classrooms/{id}', [studentController::class, 'Get_classrooms'])->name('Get_classrooms');
     }

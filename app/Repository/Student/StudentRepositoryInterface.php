@@ -13,5 +13,6 @@ interface StudentRepositoryInterface
     // Get Classes
     public function Get_classrooms($id);
 
-    // public function Get_Sections($id);
+    // Get Sections
+    public function Get_Sections($id);
 }

@@ -15,4 +15,7 @@ interface StudentRepositoryInterface
 
     // Get Sections
     public function Get_Sections($id);
+
+    // store student
+    public function storeStudent($request);
 }

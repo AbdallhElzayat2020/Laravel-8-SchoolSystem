@@ -11,9 +11,11 @@ class Student extends Model
     use HasFactory;
 
     use HasTranslations;
+
     protected $table = 'students';
 
 
     public $translatable = ['name'];
+
     protected $guarded = [];
 }

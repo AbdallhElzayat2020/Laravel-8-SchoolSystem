@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Students;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreStudentRequest;
 use App\Repository\Student\StudentRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,6 @@ class StudentController extends Controller
     {
         $this->student = $student;
     }
-
 
     //Get classrooms
     public function Get_classrooms($id)
@@ -41,14 +41,9 @@ class StudentController extends Controller
         return $this->student->createStudent();
     }
 
-    public function store(Request $request)
+    public function store(StoreStudentRequest $request)
     {
-        //
-    }
-
-    public function show($id)
-    {
-        //
+        return $this->student->storeStudent($request);
     }
 
 

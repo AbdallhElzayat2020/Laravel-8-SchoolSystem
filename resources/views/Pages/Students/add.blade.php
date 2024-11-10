@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <label>{{ trans('Students_trans.name_ar') }} : <span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="name_ar" class="form-control">
+                                <input value="{{ old('name_ar') }}" type="text" name="name_ar" class="form-control">
                             </div>
                         </div>
 
@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label>{{ trans('Students_trans.name_en') }} : <span
                                         class="text-danger">*</span></label>
-                                <input class="form-control" name="name_en" type="text">
+                                <input value="{{ old('name_en') }}" class="form-control" name="name_en" type="text">
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ trans('Students_trans.email') }} : </label>
-                                <input type="email" name="email" class="form-control">
+                                <input value="{{ old('email') }}" type="email" name="email" class="form-control">
                             </div>
                         </div>
 
@@ -62,7 +62,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>{{ trans('Students_trans.password') }} :</label>
-                                <input type="password" name="password" class="form-control">
+                                <input value="{{ old('password') }}" type="password" name="password"
+                                    class="form-control">
                             </div>
                         </div>
 
@@ -83,7 +84,7 @@
                             <div class="form-group">
                                 <label for="nal_id">{{ trans('Students_trans.Nationality') }} : <span
                                         class="text-danger">*</span></label>
-                                <select class="custom-select mr-sm-2" name="nationalitie_id">
+                                <select class="custom-select mr-sm-2" name="nationality_id">
                                     <option selected disabled>{{ trans('Parent_trans.Choose') }}...</option>
                                     @foreach ($nationalities as $National)
                                         @php

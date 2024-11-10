@@ -90,7 +90,8 @@
                             $name = json_decode($National->Name, true); // تحويل النص إلى مصفوفة
                         @endphp
                         <option value="{{ $National->id }}">
-                            {{ LaravelLocalization::getCurrentLocale() == 'ar' ? $name['ar'] : $name['en'] }}</option>
+                            {{ LaravelLocalization::getCurrentLocale() == 'ar' ? $name['ar'] : $name['en'] }}
+                        </option>
                     @endforeach
                 </select>
                 @error('Nationality_Father_id')
@@ -143,13 +144,13 @@
             @enderror
         </div>
 
-        @if($updateMode)
+        @if ($updateMode)
             <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit_edit"
-                    type="button">{{trans('Parent_trans.Next')}}
+                type="button">{{ trans('Parent_trans.Next') }}
             </button>
         @else
             <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit"
-                    type="button">{{trans('Parent_trans.Next')}}
+                type="button">{{ trans('Parent_trans.Next') }}
             </button>
         @endif
 

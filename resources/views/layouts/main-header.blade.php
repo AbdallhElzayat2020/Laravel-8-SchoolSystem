@@ -4,9 +4,11 @@
             <!-- logo -->
             <div class="text-left navbar-brand-wrapper">
                 <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('assets/images/logo-dark.png') }}"
-                        alt=""></a>
+                        alt="logo">
+                </a>
                 <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                        src="{{ asset('assets/images/logo-icon-dark.png') }}" alt=""></a>
+                        src="{{ asset('assets/images/logo-icon-dark.png') }}" alt="logo">
+                </a>
             </div>
             <!-- Top bar left -->
             <ul class="nav navbar-nav mr-auto">
@@ -29,8 +31,8 @@
             <!-- top bar right -->
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item dropdown" style="color: #000">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #000" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" style="color: #000" href="#"
+                        role="button" aria-haspopup="true" aria-expanded="false">
                         {{ LaravelLocalization::getCurrentLocaleNative() }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-language">

@@ -46,6 +46,24 @@
                         </ul>
                     </li>
 
+                    {{-- List_Teachers --}}
+
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
+                            <div class="pull-left"><i class="ti-home"></i>
+                                <span class="right-nav-text">
+                                    {{ __('language.Teachers') }}
+                                </span>
+                            </div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{ route('Teachers.index') }}">{{ __('language.List_Teachers') }}</a></li>
+                        </ul>
+                    </li>
+
+
                     {{-- Sections List --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections">
@@ -76,22 +94,7 @@
                         </ul>
                     </li>
 
-                    {{-- List_Teachers --}}
 
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-                            <div class="pull-left"><i class="ti-home"></i>
-                                <span class="right-nav-text">
-                                    {{ __('language.Teachers') }}
-                                </span>
-                            </div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{ route('Teachers.index') }}">{{ __('language.List_Teachers') }}</a></li>
-                        </ul>
-                    </li>
 
                     {{-- List_Students --}}
 
@@ -106,7 +109,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{ route('students.index') }}">{{ __('language.list_students') }}</a></li>
+                            <li><a href="{{ route('Students.create') }}">{{ __('language.add_student') }}</a></li>
 
                         </ul>
                     </li>

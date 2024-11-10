@@ -32,7 +32,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        //
+        return $this->student->getAllStudents();
     }
 
 
@@ -49,17 +49,17 @@ class StudentController extends Controller
 
     public function edit($id)
     {
-        //
+        return $this->student->editStudent($id);
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreStudentRequest $request)
     {
-        //
+        return $this->student->updateStudent($request);
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        return $this->student->Delete_Student($request);
     }
 }

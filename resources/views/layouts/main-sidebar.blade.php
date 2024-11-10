@@ -95,7 +95,6 @@
                     </li>
 
 
-
                     {{-- List_Students --}}
 
                     <li>
@@ -110,6 +109,7 @@
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{ route('Students.create') }}">{{ __('language.add_student') }}</a></li>
+                            <li><a href="{{ route('Students.index') }}">{{ __('language.list_students') }}</a></li>
 
                         </ul>
                     </li>

@@ -21,6 +21,7 @@ return [
     'Processes' => 'Processes',
     'submit' => 'submit',
     'Close' => 'Close',
+    'show' => 'Show Img',
     'Attachments' => 'Attachments',
     'Student_details' => 'Student Details',
     'Deleted_Student' => 'Delete student data',

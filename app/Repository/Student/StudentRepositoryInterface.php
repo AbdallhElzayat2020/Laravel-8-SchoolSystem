@@ -31,4 +31,16 @@ interface StudentRepositoryInterface
 
     // Get Sections
     public function Get_Sections($id);
+
+    // upload_attachment
+    public function upload_attachment($request);
+
+    // download_attachment
+    public function download_attachment($student_name, $filename);
+
+    //Delete Attachment
+    public function Delete_attachment($request);
+
+    // Show Attachments
+    public function show_attachment($student_name, $filename);
 }

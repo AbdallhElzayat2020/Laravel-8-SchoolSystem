@@ -15,6 +15,7 @@ use App\Models\Students\Student;
 use App\Repository\Student\StudentRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class StudentRepository implements StudentRepositoryInterface
 {
@@ -160,12 +161,70 @@ class StudentRepository implements StudentRepositoryInterface
     }
 
 
+    // upload_attachment
+    public function upload_attachment($request)
+    {
+        //
+        foreach ($request->file('photos') as $photo) {
+            $img_name = $photo->getClientOriginalName();
+            $photo->storeAs('attachments/students/' . $request->student_name, $img_name, 'upload_attachments');
+            // Insert Images In DB
+            $image = new Image();
+            $image->filename = $img_name;
+            $image->imageable_id = $request->student_id;
+            $image->imageable_type = 'App\Models\Students\Student';
+            $image->save();
+        }
+        toastr()->success(trans('messages.success'));
+
+        return redirect()->back();
+        // return redirect()->route('Students.show', $request->student_id);
+    }
+
+    // download_attachment
+    public function download_attachment($student_name, $filename)
+    {
+        // return Storage::disk('upload_attachments')->download('attachments/students/' . $student_name . '/' . $filename);
+
+        return response()->download(public_path('attachments/students/' . $student_name . '/' . $filename));
+    }
+
+    //Delete Attachment
+    public function Delete_attachment($request)
+    {
+        Storage::disk('upload_attachments')->delete('attachments/students/' . $request->student_name . '/' . $request->filename);
+
+        Image::where('filename', $request->filename)->where('imageable_id', $request->student_id)->where('imageable_type', 'App\Models\Students\Student')->delete();
+
+        toastr()->success(trans('messages.Delete'));
+
+        return redirect()->back();
+    }
+
+
+    // show_attachments
+    public function show_attachment($student_name, $filename)
+    {
+        $filePath = "attachments/students/{$student_name}/{$filename}";
+
+        // Check if the file exists in the storage directory
+        if (Storage::disk('upload_attachments')->exists($filePath)) {
+            // Use `public_path()` to access the file location
+            return response()->file(public_path($filePath));
+        } else {
+            // If the file doesn't exist, return a 404 error
+            return abort(404, 'File not found');
+        }
+    }
+    // Delete Students
     public function Delete_Student($request)
 
     {
 
         Student::destroy($request->id);
+
         toastr()->success(trans('messages.Delete'));
+
         return redirect()->route('Students.index');
     }
 }

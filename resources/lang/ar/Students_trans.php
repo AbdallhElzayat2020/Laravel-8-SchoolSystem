@@ -20,6 +20,7 @@ return [
     'academic_year' => 'السنة الدراسية',
     'Processes' => 'العمليات',
     'submit' => 'تاكيد',
+    'show' => 'مشاهدة',
     'Close' => 'اغلاق',
     'Attachments' => 'المرفقات',
     'Student_details' => 'معلومات الطالب',

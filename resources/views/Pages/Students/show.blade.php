@@ -82,8 +82,8 @@
                             <div class="tab-pane fade" id="profile-02" role="tabpanel" aria-labelledby="profile-02-tab">
                                 <div class="card card-statistics">
                                     <div class="card-body">
-                                        {{-- <form method="post" action="{{ route('Upload_attachment') }}" --}}
-                                        <form method="post" action="" enctype="multipart/form-data">
+                                        <form method="post" action="{{ route('Upload_attachment') }}"
+                                            enctype="multipart/form-data">
                                             @csrf
                                             <div class="col-md-3">
                                                 <div class="form-group">
@@ -122,20 +122,30 @@
                                                     <td>{{ $attachment->filename }}</td>
                                                     <td>{{ $attachment->created_at->diffForHumans() }}</td>
                                                     <td colspan="2">
-                                                        <a class="btn btn-outline-info btn-sm" {{-- href="{{ url('Download_attachment') }}/{{ $attachment->imageable->name }}/{{ $attachment->filename }}" --}}
+                                                        <a class="btn btn-outline-info btn-sm"
+                                                            href="{{ url('Download_attachment') }}/{{ $attachment->imageable->name }}/{{ $attachment->filename }}"
                                                             role="button"><i class="fas fa-download"></i>&nbsp;
                                                             {{ trans('Students_trans.Download') }}
                                                         </a>
-
+                                                        {{-- <a target="_blank" class="btn btn-outline-success btn-sm"
+                                                            href="{{ url('show_attachment') }}/{{ $attachment->imageable->name }}/{{ $attachment->filename }}"
+                                                            role="button"><i class="far fa-eye"></i>&nbsp;
+                                                            {{ trans('Students_trans.show') }}
+                                                        </a> --}}
+                                                        <a target="_blank" class="btn btn-outline-success btn-sm"
+                                                            href="{{ route('show_attachment', ['student_name' => $attachment->imageable->name, 'filename' => $attachment->filename]) }}"
+                                                            role="button">
+                                                            <i class="far fa-eye"></i>&nbsp;
+                                                            {{ trans('Students_trans.show') }}
+                                                        </a>
                                                         <button type="button" class="btn btn-outline-danger btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#Delete_img{{ $attachment->id }}"
                                                             title="{{ trans('Grades_trans.Delete') }}">{{ trans('Students_trans.delete') }}
                                                         </button>
-
                                                     </td>
                                                 </tr>
-                                                {{-- @include('pages.Students.Delete_img') --}}
+                                                @include('pages.Students.Delete_img')
                                             @endforeach
                                         </tbody>
                                     </table>

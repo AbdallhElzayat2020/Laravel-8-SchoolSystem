@@ -56,11 +56,9 @@ Route::group(
         Route::resource('Students', StudentController::class);
         Route::get('Get_classrooms/{id}', [StudentController::class, 'Get_classrooms']);
         Route::get('Get_Sections/{id}', [StudentController::class, 'Get_Sections']);
-
-        // Route::get('Get_classrooms/{id}', [studentController::class, 'Get_classrooms']);
-        // Route::get('/Get_classrooms/{id}', 'StudentController@Get_classrooms');
-        // Route::get('/Get_Sections/{id}', 'StudentController@Get_Sections');
-
-        // Route::get('Get_classrooms/{id}', [studentController::class, 'Get_classrooms'])->name('Get_classrooms');
+        Route::post('Upload_attachment', [StudentController::class, 'Upload_attachment'])->name('Upload_attachment');
+        Route::get('Download_attachment/{student_name}/{file_name}', [StudentController::class, 'Download_attachment']);
+        Route::post('Delete_attachment', [StudentController::class, 'Delete_attachment'])->name('Delete_attachment');
+        Route::get('show_attachment/{student_name}/{filename}', [StudentController::class, 'show_attachment'])->name('show_attachment');
     }
 );

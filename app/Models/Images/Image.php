@@ -9,6 +9,13 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'filename',
+        'imageable_id',
+        'imageable_type',
+    ];
+
+    // Morph to Relationship Model
     public function imageable()
     {
         return $this->morphTo();

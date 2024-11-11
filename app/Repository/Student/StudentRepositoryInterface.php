@@ -26,6 +26,9 @@ interface StudentRepositoryInterface
     // Get Classes
     public function Get_classrooms($id);
 
+    // show student
+    public function show_student($id);
+
     // Get Sections
     public function Get_Sections($id);
 }

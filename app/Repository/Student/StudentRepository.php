@@ -9,9 +9,11 @@ use App\Models\Type_Blood;
 use App\Models\Grades\Grade;
 use App\Models\Nationalitie;
 use App\Models\Genders\Gender;
+use App\Models\Images\Image;
 use App\Models\Sections\Section;
 use App\Models\Students\Student;
 use App\Repository\Student\StudentRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class StudentRepository implements StudentRepositoryInterface
@@ -39,6 +41,11 @@ class StudentRepository implements StudentRepositoryInterface
         $students = Student::all();
 
         return view('Pages.Students.index', compact('students'));
+    }
+    public function show_student($id)
+    {
+        $Student = Student::findOrFail($id);
+        return view('Pages.Students.show', compact('Student'));
     }
 
     public function createStudent()
@@ -74,7 +81,8 @@ class StudentRepository implements StudentRepositoryInterface
     // store student
     public function storeStudent($request)
     {
-
+        //to check if any tables has error when inserting student
+        DB::beginTransaction();
         try {
             $students = new Student();
             $students->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
@@ -90,11 +98,37 @@ class StudentRepository implements StudentRepositoryInterface
             $students->parent_id = $request->parent_id;
             $students->academic_year = $request->academic_year;
             $students->save();
+
+            // Upload Images
+            if ($request->hasFile('photos')) {
+                foreach ($request->file('photos') as $photo) {
+
+                    // $img_extension = $photo->getClientOriginalExtension();
+
+                    // $new_name_img = rand() . '.' . $img_extension;
+
+                    // $photo->storeAs('attachments/students/' . $students->name, $new_name_img, 'upload_attachments');
+
+                    // I can use this way with same imgName withOut Random name
+                    $img_name = $photo->getClientOriginalName();
+
+                    $photo->storeAs('attachments/students/' . $students->name, $img_name, 'upload_attachments');
+
+                    // insert Images into DB
+                    $image = new Image();
+                    $image->filename = $img_name;
+                    $image->imageable_id = $students->id;
+                    $image->imageable_type = 'App\Models\Students\Student';
+                    $image->save();
+                }
+                DB::commit();
+            }
+
             toastr()->success(trans('messages.success'));
 
             return redirect()->route('Students.index');
         } catch (\Exception $e) {
-
+            DB::rollBack();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

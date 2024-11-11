@@ -56,7 +56,10 @@ class StudentController extends Controller
     {
         return $this->student->updateStudent($request);
     }
-
+    public function show($id)
+    {
+        return $this->student->show_student($id);
+    }
 
     public function destroy(Request $request)
     {

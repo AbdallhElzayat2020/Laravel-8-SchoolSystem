@@ -28,7 +28,8 @@
                     </div>
                 @endif
 
-                <form method="post" action="{{ route('Students.store') }}" autocomplete="off">
+                <form method="post" action="{{ route('Students.store') }}" autocomplete="off"
+                    enctype="multipart/form-data">
                     @csrf
                     <h6 style="font-family: 'Cairo', sans-serif;color: blue">
                         {{ trans('Students_trans.personal_information') }}</h6><br>
@@ -61,7 +62,7 @@
                         <div class="col-md-6">
                             <label for="title">{{ trans('Teacher_trans.Password') }}</label>
                             <div class="input-group">
-                                <input type="password" value="{{ old('password') }}" name="Password"
+                                <input type="password" value="{{ old('password') }}" name="password"
                                     class="form-control" id="passwordInput">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="button" id="togglePassword">

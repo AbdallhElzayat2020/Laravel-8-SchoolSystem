@@ -35,9 +35,18 @@ return [
             'root' => storage_path('app'),
         ],
 
+        // parent attachments
         'parent_attachments' => [
             'driver' => 'local',
             'root' => storage_path('app/public/parent_attachments'),
+        ],
+
+        //upload attachments
+        'upload_attachments' => [
+            'driver' => 'local',
+            'root' => public_path('/'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
         ],
 
         'public' => [

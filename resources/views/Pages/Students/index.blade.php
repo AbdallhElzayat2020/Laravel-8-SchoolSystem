@@ -60,7 +60,8 @@
                                                             class="fa fa-trash"></i>
                                                     </button>
 
-                                                    <a href="#" class="btn btn-warning btn-sm" role="button"
+                                                    <a href="{{ route('Students.show', $student->id) }}"
+                                                        class="btn btn-warning btn-sm" role="button"
                                                         aria-pressed="true"><i class="far fa-eye"></i>
                                                     </a>
 

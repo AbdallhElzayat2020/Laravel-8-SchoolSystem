@@ -6,10 +6,13 @@ use App\Models\Classrooms\Classroom;
 use App\Models\Genders\Gender;
 use App\Models\Grades\Grade;
 use App\Models\Images\Image;
+use App\Models\My_Parent;
+use App\Models\Nationalitie;
 use App\Models\Sections\Section;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Support\Facades\App;
 
 class Student extends Model
 {
@@ -41,6 +44,20 @@ class Student extends Model
     {
         return $this->belongsTo(Classroom::class, 'Classroom_id');
     }
+
+
+    // student belongs to Nationality
+    public function Nationality()
+    {
+        return $this->belongsTo(Nationalitie::class, 'nationality_id');
+    }
+
+    // student belongs to Nationality
+    public function myparent()
+    {
+        return $this->belongsTo(My_Parent::class, 'parent_id');
+    }
+
     // Student belongs to Section
     public function section()
     {
@@ -49,9 +66,16 @@ class Student extends Model
 
 
 
-    // Morph to Relationship
+    // Morph to Relationship => [student has many images]
     public function images()
     {
-        return $this->morphToMany(Image::class, 'imageable');
+        // in model Image => imageable
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function getNationalityNameAttribute()
+    {
+        $name = json_decode($this->nationality->Name, true);
+        return $name[App::getLocale()] ?? '';
     }
 }

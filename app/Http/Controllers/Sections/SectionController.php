@@ -58,6 +58,7 @@ class SectionController extends Controller
     public function update(StoreSectionRequest $request)
     {
         try {
+
             $Sections = Section::findOrFail($request->id);
 
             $Sections->Section_Name = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
@@ -69,8 +70,8 @@ class SectionController extends Controller
             } else {
                 $Sections->Status = 2;
             }
-
             // update pivot table
+
             if (isset($request->teacher_id)) {
                 $Sections->teachers()->sync($request->teacher_id);
             } else {

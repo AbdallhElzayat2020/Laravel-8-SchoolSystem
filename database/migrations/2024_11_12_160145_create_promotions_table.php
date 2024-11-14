@@ -15,7 +15,6 @@ class CreatePromotionsTable extends Migration
     {
         Schema::create('promotions', function (Blueprint $table) {
             $table->id();
-
             $table->foreignId('student_id')->constrained('students')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('from_grade')->constrained('grades')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('from_Classroom')->constrained('classrooms')->cascadeOnDelete()->cascadeOnUpdate();

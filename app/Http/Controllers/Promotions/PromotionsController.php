@@ -20,16 +20,15 @@ class PromotionsController extends Controller
         return $this->promotion->index();
     }
 
-
     public function create()
     {
-        return $this->create();
+        return $this->promotion->create();
     }
 
 
     public function store(Request $request)
     {
-        //
+        return $this->promotion->store($request);
     }
 
 

@@ -12,7 +12,7 @@ interface studentPromotionRepositoryInterface
     public function create();
 
     // store function
-    public function store();
+    public function store($request);
 
 
     // public edit

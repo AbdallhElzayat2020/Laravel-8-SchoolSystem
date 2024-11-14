@@ -65,19 +65,6 @@ class StudentRepository implements StudentRepositoryInterface
     }
 
 
-    // Edit student
-    public function editStudent($id)
-    {
-        // $data['my_classes'] same as compact
-        $data['Grades'] = Grade::all();
-        $data['parents'] = My_Parent::all();
-        $data['Genders'] = Gender::all();
-        $data['nationalities'] = Nationalitie::all();
-        $data['bloods'] = Type_Blood::all();
-        $Students =  Student::findOrFail($id);
-        return view('pages.Students.edit', $data, compact('Students'));
-    }
-
 
     // store student
     public function storeStudent($request)
@@ -133,6 +120,21 @@ class StudentRepository implements StudentRepositoryInterface
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
+
+
+    // Edit student
+    public function editStudent($id)
+    {
+        // $data['my_classes'] same as compact
+        $data['Grades'] = Grade::all();
+        $data['parents'] = My_Parent::all();
+        $data['Genders'] = Gender::all();
+        $data['nationalities'] = Nationalitie::all();
+        $data['bloods'] = Type_Blood::all();
+        $Students =  Student::findOrFail($id);
+        return view('pages.Students.edit', $data, compact('Students'));
+    }
+
 
     public function updateStudent($request)
     {

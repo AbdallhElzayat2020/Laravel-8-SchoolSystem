@@ -50,7 +50,6 @@ class TeacherController extends Controller
         return view('Pages.Teachers.Edit', compact('Teachers', 'specializations', 'genders'));
     }
 
-
     public function update(Request $request)
     {
 

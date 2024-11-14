@@ -38,16 +38,27 @@ class studentPromotionRepository implements studentPromotionRepositoryInterface
                 ]);
 
                 // insert in student_promotions table
-                $student_promotions = new promotions();
-                $student_promotions->student_id = $student->id;
-                $student_promotions->from_grade = $request->Grade_id;
-                $student_promotions->from_Classroom = $request->Classroom_id;
-                $student_promotions->from_section = $request->section_id;
-                // to table promotions
-                $student_promotions->to_grade = $request->Grade_id_new;
-                $student_promotions->to_Classroom = $request->Classroom_id_new;
-                $student_promotions->to_section = $request->section_id_new;
-                $student_promotions->save();
+
+                promotions::updateOrCreate([
+                    'student_id' => $student->id,
+                    'from_grade' => $request->Grade_id,
+                    'from_Classroom' => $request->Classroom_id,
+                    'from_section' => $request->section_id,
+                    'to_grade' => $request->Grade_id_new,
+                    'to_Classroom' => $request->Classroom_id_new,
+                    'to_section' => $request->section_id_new,
+
+                ]);
+                // $student_promotions = new promotions();
+                // $student_promotions->student_id = $student->id;
+                // $student_promotions->from_grade = $request->Grade_id;
+                // $student_promotions->from_Classroom = $request->Classroom_id;
+                // $student_promotions->from_section = $request->section_id;
+                // // to table promotions
+                // $student_promotions->to_grade = $request->Grade_id_new;
+                // $student_promotions->to_Classroom = $request->Classroom_id_new;
+                // $student_promotions->to_section = $request->section_id_new;
+                // $student_promotions->save();
             }
 
 

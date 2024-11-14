@@ -9,6 +9,7 @@ return [
     'email' => 'email',
     'password' => 'password',
     'gender' => 'gender',
+    'Student_Edit' => 'Edit Student',
     'Nationality' => 'Nationality',
     'blood_type' => 'blood_type',
     'Date_of_Birth' => 'Date_of_Birth',

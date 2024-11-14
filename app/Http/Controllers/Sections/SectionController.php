@@ -28,7 +28,6 @@ class SectionController extends Controller
         return view('Pages.Sections.sections', compact('grades', 'list_Grades', 'teachers'));
     }
 
-
     public function store(StoreSectionRequest $request)
     {
 
@@ -59,32 +58,26 @@ class SectionController extends Controller
     public function update(StoreSectionRequest $request)
     {
         try {
-            $section = Section::findOrFail($request->id);
+            $Sections = Section::findOrFail($request->id);
 
-            $section->Section_Name = ['en' => $request->Name_Section_En, 'ar' => $request->Name_Section_Ar];
-
-            $section->grade_id = $request->grade_id;
-
-            $section->class_id = $request->class_id;
+            $Sections->Section_Name = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+            $Sections->grade_id = $request->grade_id;
+            $Sections->class_id = $request->class_id;
 
             if (isset($request->Status)) {
-
-                $section->Status = 1;
+                $Sections->Status = 1;
             } else {
-
-                $section->Status = 2;
+                $Sections->Status = 2;
             }
 
-            // update pivot Table
+            // update pivot table
             if (isset($request->teacher_id)) {
-
-                $section->teachers()->sync($request->teacher_id);
+                $Sections->teachers()->sync($request->teacher_id);
             } else {
-                $section->teachers()->sync(array());
+                $Sections->teachers()->sync(array());
             }
 
-            $section->save();
-
+            $Sections->save();
             toastr()->success(trans('messages.Update'));
 
             return redirect()->route('sections.index');

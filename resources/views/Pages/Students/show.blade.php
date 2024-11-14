@@ -127,11 +127,6 @@
                                                             role="button"><i class="fas fa-download"></i>&nbsp;
                                                             {{ trans('Students_trans.Download') }}
                                                         </a>
-                                                        {{-- <a target="_blank" class="btn btn-outline-success btn-sm"
-                                                            href="{{ url('show_attachment') }}/{{ $attachment->imageable->name }}/{{ $attachment->filename }}"
-                                                            role="button"><i class="far fa-eye"></i>&nbsp;
-                                                            {{ trans('Students_trans.show') }}
-                                                        </a> --}}
                                                         <a target="_blank" class="btn btn-outline-success btn-sm"
                                                             href="{{ route('show_attachment', ['student_name' => $attachment->imageable->name, 'filename' => $attachment->filename]) }}"
                                                             role="button">

@@ -4,6 +4,7 @@ use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\My_Parent\My_ParentController;
+use App\Http\Controllers\Promotions\PromotionsController;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
@@ -31,8 +32,9 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
     ],
     function () {
-        // Dashboard
+        // Dashboard Home
         Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+
         // Grades Route
         Route::resource('grades', GradeController::class);
 
@@ -60,5 +62,8 @@ Route::group(
         Route::get('Download_attachment/{student_name}/{file_name}', [StudentController::class, 'Download_attachment']);
         Route::post('Delete_attachment', [StudentController::class, 'Delete_attachment'])->name('Delete_attachment');
         Route::get('show_attachment/{student_name}/{filename}', [StudentController::class, 'show_attachment'])->name('show_attachment');
+
+        // Promotions for students
+        Route::resource('Promotions', PromotionsController::class);
     }
 );

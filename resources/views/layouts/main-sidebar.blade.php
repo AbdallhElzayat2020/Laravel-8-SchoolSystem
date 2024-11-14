@@ -6,7 +6,7 @@
                 <ul class="nav navbar-nav side-menu" id="sidebarnav">
                     <!-- menu item Dashboard-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard">
+                        <a href="{{ route('dashboard') }}" data-toggle="collapse" data-target="#dashboard">
                             <div class="pull-left"><i class="ti-home"></i><span
                                     class="right-nav-text">{{ __('language.dashboard') }}</span>
                             </div>
@@ -17,7 +17,6 @@
                             <li><a href="">{{ __('language.Dashboard_page') }}</a></li>
                         </ul>
                     </li>
-
 
                     {{-- Grades List --}}
                     <li>
@@ -108,8 +107,12 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="{{ route('Students.create') }}">{{ __('language.add_student') }}</a></li>
+                            {{-- list_students --}}
                             <li><a href="{{ route('Students.index') }}">{{ __('language.list_students') }}</a></li>
+
+                            {{-- Students_Promotions --}}
+                            <li><a href="{{ route('Promotions.index') }}">{{ __('language.Students_Promotions') }}</a>
+                            </li>
 
                         </ul>
                     </li>

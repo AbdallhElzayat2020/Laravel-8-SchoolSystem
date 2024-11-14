@@ -81,6 +81,7 @@ class StudentController extends Controller
         return $this->student->download_attachment($student_name, $filename);
     }
 
+    // Show Attachments
     public function show_attachment($student_name, $filename)
     {
         // Return the response from the repository function

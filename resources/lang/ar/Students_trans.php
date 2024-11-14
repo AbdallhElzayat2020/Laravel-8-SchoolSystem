@@ -20,7 +20,6 @@ return [
     'academic_year' => 'السنة الدراسية',
     'Processes' => 'العمليات',
     'submit' => 'تاكيد',
-    'show' => 'مشاهدة',
     'Close' => 'اغلاق',
     'Attachments' => 'المرفقات',
     'Student_details' => 'معلومات الطالب',
@@ -32,9 +31,5 @@ return [
     'created_at' => 'تاريخ الاضافة',
     'Download' => 'تحميل',
     'delete' => 'حذف',
-
-
-
-
 
 ];

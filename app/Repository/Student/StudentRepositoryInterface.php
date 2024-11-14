@@ -9,6 +9,7 @@ interface StudentRepositoryInterface
 {
     //Get All Form Students
     public function getAllStudents();
+
     //Create Student
     public function createStudent();
 

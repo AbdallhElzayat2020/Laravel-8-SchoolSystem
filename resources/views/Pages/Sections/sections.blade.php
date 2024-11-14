@@ -115,11 +115,11 @@
                                                                                 <input type="text" name="Name_Section_En"
                                                                                     class="form-control"
                                                                                     value="{{ $list_Sections->getTranslation('Section_Name', 'en') }}">
+
                                                                                 <input id="id" type="hidden"
                                                                                     name="id" class="form-control"
                                                                                     value="{{ $list_Sections->id }}">
                                                                             </div>
-
                                                                         </div>
                                                                         <br>
 

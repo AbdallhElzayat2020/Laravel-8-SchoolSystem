@@ -5,6 +5,7 @@ namespace App\Repository\StudentPromotions;
 use App\Models\Grades\Grade;
 use App\Models\Promotions\promotions;
 use App\Models\Students\Student;
+use Illuminate\Support\Facades\DB;
 
 class studentPromotionRepository implements studentPromotionRepositoryInterface
 {
@@ -17,6 +18,7 @@ class studentPromotionRepository implements studentPromotionRepositoryInterface
     }
     public function store($request)
     {
+        DB::beginTransaction();
         try {
             // get students where grade and classroom and section is the same from request
             $students = Student::where('Grade_id', $request->Grade_id)->where('Classroom_id', $request->Classroom_id)->where('section_id', $request->section_id)->get();
@@ -47,24 +49,15 @@ class studentPromotionRepository implements studentPromotionRepositoryInterface
                     'to_grade' => $request->Grade_id_new,
                     'to_Classroom' => $request->Classroom_id_new,
                     'to_section' => $request->section_id_new,
-
                 ]);
-                // $student_promotions = new promotions();
-                // $student_promotions->student_id = $student->id;
-                // $student_promotions->from_grade = $request->Grade_id;
-                // $student_promotions->from_Classroom = $request->Classroom_id;
-                // $student_promotions->from_section = $request->section_id;
-                // // to table promotions
-                // $student_promotions->to_grade = $request->Grade_id_new;
-                // $student_promotions->to_Classroom = $request->Classroom_id_new;
-                // $student_promotions->to_section = $request->section_id_new;
-                // $student_promotions->save();
+                DB::commit();
             }
 
 
 
             return redirect()->back()->with('success', __('messages.success'));
         } catch (\Throwable $th) {
+            DB::rollBack();
             return redirect()->back()->with('error', $th->getMessage());
         }
     }

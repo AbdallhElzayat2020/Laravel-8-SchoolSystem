@@ -14,10 +14,6 @@ interface studentPromotionRepositoryInterface
     // store function
     public function store($request);
 
-
-    // public edit
-    public function edit();
-
-    // update function
-    public function update();
+    //Destroy function
+    public function destroy($request);
 }

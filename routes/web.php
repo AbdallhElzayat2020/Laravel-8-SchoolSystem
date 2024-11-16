@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
+use App\Http\Controllers\GraduatedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\My_Parent\My_ParentController;
 use App\Http\Controllers\Promotions\PromotionsController;
@@ -65,5 +66,6 @@ Route::group(
 
         // Promotions for students
         Route::resource('Promotions', PromotionsController::class);
+        Route::resource('Graduated', GraduatedController::class);
     }
 );

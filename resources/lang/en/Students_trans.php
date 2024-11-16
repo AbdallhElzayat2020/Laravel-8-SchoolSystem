@@ -35,5 +35,8 @@ return [
     'delete' => 'Delete',
     'new_Grade' => 'New Grade Level',
     'old_Grade' => 'Old Grade Level',
+    'back_promotions_update' => 'Are you sure you want to continue',
+    'back_promotions_update_btn' => 'Default Back',
+
 
 ];

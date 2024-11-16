@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'Students_Promotions_update' => 'ادارة ترقية الطلاب',
     'dashboard' => 'الرئيسية',
     'Dashboard_page' => 'لوحة التحكم',
     'Main_title' => 'برنامج لادارة المدارس',

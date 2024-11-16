@@ -43,5 +43,4 @@ class Teacher extends Model
     {
         return $this->belongsToMany(Section::class, 'teacher_section');
     }
-    // protected $guarded = [];
 }

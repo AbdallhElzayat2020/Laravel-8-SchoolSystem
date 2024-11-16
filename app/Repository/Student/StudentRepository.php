@@ -37,9 +37,8 @@ class StudentRepository implements StudentRepositoryInterface
 
     public function getAllStudents()
     {
-
-        //
-        $students = Student::all();
+        //relations ship with student
+        $students = Student::with('gender', 'grade', 'classroom', 'section')->get();
 
         return view('Pages.Students.index', compact('students'));
     }
@@ -109,8 +108,8 @@ class StudentRepository implements StudentRepositoryInterface
                     $image->imageable_type = 'App\Models\Students\Student';
                     $image->save();
                 }
-                DB::commit();
             }
+            DB::commit();
 
             toastr()->success(trans('messages.success'));
 

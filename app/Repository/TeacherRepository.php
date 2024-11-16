@@ -14,7 +14,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 
     public function getAllTeachers()
     {
-        return Teacher::all();
+        return Teacher::with('genders', 'specializations')->get();
     }
 
     public function GetSpecializations()
@@ -36,7 +36,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 
             $Teachers->Email = $request->Email;
 
-            $Teachers->Password =  Hash::make($request->Password);
+            $Teachers->Password = Hash::make($request->Password);
 
             $Teachers->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
 
@@ -60,7 +60,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 
     public function EditTeachers($id)
     {
-        return  Teacher::findOrFail($id);
+        return Teacher::findOrFail($id);
     }
 
     public function updateTeachers($request)
@@ -70,7 +70,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 
             $Teachers->Email = $request->Email;
 
-            $Teachers->Password =  Hash::make($request->Password);
+            $Teachers->Password = Hash::make($request->Password);
 
             $Teachers->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
 
@@ -91,6 +91,7 @@ class TeacherRepository implements TeacherRepositoryInterface
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
+
     public function DeleteTeachers($request)
     {
         Teacher::findOrFail($request->id)->delete();

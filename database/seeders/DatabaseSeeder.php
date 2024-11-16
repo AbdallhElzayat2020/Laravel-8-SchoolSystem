@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ReligionSeeder::class);
         $this->call(specializationsSeeder::class);
         $this->call(BloodSeeder::class);
+        $this->call(AdminSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

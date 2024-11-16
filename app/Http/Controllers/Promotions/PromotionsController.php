@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 class PromotionsController extends Controller
 {
     protected $promotion;
+
     public function __construct(studentPromotionRepositoryInterface $promotion)
     {
-
         $this->promotion = $promotion;
     }
 
+
+    // Controller Functions
     public function index()
     {
         return $this->promotion->index();
@@ -50,8 +52,8 @@ class PromotionsController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        return $this->promotion->destroy($request);
     }
 }

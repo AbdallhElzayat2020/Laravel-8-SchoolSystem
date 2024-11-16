@@ -35,7 +35,7 @@ return [
     'old_Grade' => 'المرحلة الدراسية القديمة',
 
     'back_promotions_update' => 'هل انت متاكد من عملية التراجع لكافة للطلاب',
-    'back_promotions_update_btn' => 'تراجع الكل',
+    'back_promotions_update_btn' => 'استرجاع الافتراضي',
     'student_name' => 'اسم الطالب',
     'f_grade' => 'المرحلة الدراسية السابقة',
     'f_classroom' => 'الصف الدراسي السابق',

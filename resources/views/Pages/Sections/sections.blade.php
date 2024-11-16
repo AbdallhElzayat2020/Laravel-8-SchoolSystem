@@ -79,8 +79,6 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-
-
                                                     <!--تعديل قسم جديد -->
                                                     <div class="modal fade" id="edit{{ $list_Sections->id }}"
                                                         tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -93,18 +91,20 @@
                                                                         id="exampleModalLabel">
                                                                         {{ trans('Sections_trans.edit_Section') }}
                                                                     </h5>
+
                                                                     <button type="button" class="close"
                                                                         data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
+
                                                                 </div>
                                                                 <div class="modal-body">
-
                                                                     <form action="{{ route('sections.update', 'test') }}"
                                                                         method="POST">
                                                                         @method('PUT')
                                                                         @csrf
                                                                         <div class="row">
+
                                                                             <div class="col">
                                                                                 <input type="text" name="Name_Section_Ar"
                                                                                     class="form-control"

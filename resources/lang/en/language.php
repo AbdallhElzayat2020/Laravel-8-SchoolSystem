@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'Students_Promotions_update' => 'Student Promotions Update',
     'dashboard' => 'Dashboard',
     'Dashboard_page' => 'Dashboard',
     'Main_title' => 'School Management System',

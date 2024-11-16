@@ -21,8 +21,9 @@
                     {{-- Grades List --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements">
-                            <div class="pull-left"><i class="ti-palette"></i><span
-                                    class="right-nav-text">{{ __('language.Grades') }}</span></div>
+                            <div class="pull-left"><i class="fas fa-school"></i><span
+                                    class="right-nav-text">{{ __('language.Grades') }}</span>
+                            </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
@@ -95,28 +96,65 @@
 
 
                     {{-- List_Students --}}
-
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Form">
-                            <div class="pull-left"><i class="ti-files"></i>
-                                <span class="right-nav-text">
-                                    {{ __('language.students') }}
-                                </span>
-                            </div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i
+                                class="fas fa-user-graduate"></i>{{ trans('language.students') }}<div
+                                class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="Form" class="collapse" data-parent="#sidebarnav">
-                            {{-- list_students --}}
-                            <li><a href="{{ route('Students.index') }}">{{ __('language.list_students') }}</a></li>
-
-                            {{-- Students_Promotions --}}
-                            <li><a href="{{ route('Promotions.index') }}">{{ __('language.Students_Promotions') }}</a>
+                        <ul id="students-menu" class="collapse">
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse"
+                                    data-target="#Student_information">{{ trans('language.Student_information') }}
+                                    <div class="pull-right"><i class="ti-plus"></i></div>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <ul id="Student_information" class="collapse">
+                                    <li> <a
+                                            href="{{ route('Students.create') }}">{{ trans('language.add_student') }}</a>
+                                    </li>
+                                    <li> <a
+                                            href="{{ route('Students.index') }}">{{ trans('language.list_students') }}</a>
+                                    </li>
+                                </ul>
                             </li>
 
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse"
+                                    data-target="#Students_upgrade">{{ trans('language.Students_Promotions') }}<div
+                                        class="pull-right"><i class="ti-plus"></i></div>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <ul id="Students_upgrade" class="collapse">
+                                    <li> <a
+                                            href="{{ route('Promotions.index') }}">{{ trans('language.add_Promotion') }}</a>
+                                    </li>
+                                    <li> <a
+                                            href="{{ route('Promotions.create') }}">{{ trans('language.list_Promotions') }}</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse"
+                                    data-target="#Graduate students">{{ trans('language.Graduate_students') }}<div
+                                        class="pull-right"><i class="ti-plus"></i></div>
+                                    <div class="clearfix"></div>
+                                </a>
+                                <ul id="Graduate students" class="collapse">
+                                    <li> <a
+                                            href="{{ route('Graduated.create') }}">{{ trans('language.add_Graduate') }}</a>
+                                    </li>
+                                    <li> <a
+                                            href="{{ route('Graduated.index') }}">{{ trans('language.list_Graduate') }}</a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    <!-- menu item table -->
+
+                    {{-- Teachers --}}
+
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#table">
                             <div class="pull-left"><i class="ti-layout-tab-window"></i><span
@@ -235,9 +273,6 @@
             </div>
 
 
-
-
-
             <!-- Start About -->
             <div class="about">
                 <div class="container">
@@ -268,7 +303,6 @@
             </div>
 
 
-
             <!-- Start About -->
             <div class="about">
                 <div class="container">
@@ -297,8 +331,6 @@
                 </div>
             </div>
             <!-- End About -->
-
-
 
 
             <!-- End About -->

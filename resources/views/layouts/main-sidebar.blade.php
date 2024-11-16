@@ -35,7 +35,7 @@
                     {{-- Classes List --}}
                     <li>
                         <a href="javascript:void(0)" data-toggle="collapse" data-target="#calendar-menu">
-                            <div class="pull-left"><i class="ti-calendar"></i><span
+                            <div class="pull-left"><i class="fa fa-building"></i><span
                                     class="right-nav-text">{{ __('My_Classes_trans.title_page') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
@@ -50,7 +50,7 @@
 
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-                            <div class="pull-left"><i class="ti-home"></i>
+                            <div class="pull-left"><i class="fas fa-user-tie"></i>
                                 <span class="right-nav-text">
                                     {{ __('language.Teachers') }}
                                 </span>
@@ -67,7 +67,7 @@
                     {{-- Sections List --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections">
-                            <div class="pull-left"><i class="ti-palette"></i><span
+                            <div class="pull-left"><i class="fas fa-chalkboard"></i><span
                                     class="right-nav-text">{{ __('Sections_trans.title_page') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
@@ -76,15 +76,13 @@
                             <li><a href="{{ route('sections.index') }}"><i class="ti-menu-alt"></i><span
                                         class="right-nav-text">{{ __('Sections_trans.List_sections') }}</span> </a>
                             </li>
-
                         </ul>
                     </li>
-
 
                     {{-- Parents List --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
-                            <div class="pull-left"><i class="ti-pie-chart"></i><span
+                            <div class="pull-left"><i class="fas fa-user-tie"></i><span
                                     class="right-nav-text">{{ __('language.Parents') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>

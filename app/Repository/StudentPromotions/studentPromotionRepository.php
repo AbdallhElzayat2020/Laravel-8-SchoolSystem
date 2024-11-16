@@ -92,12 +92,24 @@ class studentPromotionRepository implements studentPromotionRepositoryInterface
                         ]);
                 }
                 promotions::truncate();
-                //or
-                // promotions::query()->truncate();
-            } else {
-            }
+                return redirect()->back()->with('success', __('messages.success'));
 
-            return redirect()->back()->with('success', __('messages.success'));
+                //or
+            } else {
+
+                $Promotion = promotions::findOrFail($request->id);
+
+                Student::where('id', $Promotion->student_id)
+                    ->update([
+                        'Grade_id' => $Promotion->from_grade,
+                        'Classroom_id' => $Promotion->from_Classroom,
+                        'section_id' => $Promotion->from_section,
+                        'academic_year' => $Promotion->academic_year,
+                    ]);
+
+                promotions::destroy($request->id);
+                return redirect()->back()->with('success', __('messages.success'));
+            }
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }

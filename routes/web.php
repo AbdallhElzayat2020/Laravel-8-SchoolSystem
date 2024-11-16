@@ -66,6 +66,6 @@ Route::group(
 
         // Promotions for students
         Route::resource('Promotions', PromotionsController::class);
-        Route::resource('Graduated', GraduatedController::class);
+        Route::resource('Graduated', PromotionsController::class);
     }
 );

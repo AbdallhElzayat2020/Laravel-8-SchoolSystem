@@ -26,6 +26,7 @@ class CreatePromotionsTable extends Migration
             $table->foreignId('to_section')->constrained('sections')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('academic_year_new');
 
+
             $table->timestamps();
         });
     }

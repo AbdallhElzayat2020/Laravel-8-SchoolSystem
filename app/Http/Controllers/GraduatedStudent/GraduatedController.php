@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\GraduatedStudent;
 
+use App\Http\Controllers\Controller;
+use App\Repository\GraduatedStudent\GraduatedStudentRepositoryInterface;
 use Illuminate\Http\Request;
 
 class GraduatedController extends Controller
@@ -11,9 +13,15 @@ class GraduatedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $graduated;
+    public function __construct(GraduatedStudentRepositoryInterface $graduated)
+    {
+        $this->graduated = $graduated;
+    }
+
     public function index()
     {
-        //
+        return $this->graduated->index();
     }
 
     /**
@@ -23,8 +31,9 @@ class GraduatedController extends Controller
      */
     public function create()
     {
-        //
+        return $this->graduated->create();
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,41 +43,13 @@ class GraduatedController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->graduated->softDelete($request);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return $this->graduated->returnData($request);
     }
 
     /**
@@ -77,8 +58,8 @@ class GraduatedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        return $this->graduated->delete($request);
     }
 }

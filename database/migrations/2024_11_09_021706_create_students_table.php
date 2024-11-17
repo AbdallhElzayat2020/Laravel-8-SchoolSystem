@@ -27,6 +27,7 @@ class CreateStudentsTable extends Migration
             $table->foreignId('parent_id')->references('id')->on('my__parents')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('academic_year');
             $table->date('Date_Birth');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

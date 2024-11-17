@@ -11,12 +11,13 @@ use App\Models\Nationalitie;
 use App\Models\Sections\Section;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Support\Facades\App;
 
 class Student extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     use HasTranslations;
 

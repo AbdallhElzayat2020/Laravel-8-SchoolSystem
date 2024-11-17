@@ -93,8 +93,7 @@ class studentPromotionRepository implements studentPromotionRepositoryInterface
                 }
                 promotions::truncate();
                 return redirect()->back()->with('success', __('messages.success'));
-
-                //or
+                // return response()->json(['success' => __('messages.success')]);
             } else {
 
                 $Promotion = promotions::findOrFail($request->id);
@@ -108,9 +107,14 @@ class studentPromotionRepository implements studentPromotionRepositoryInterface
                     ]);
 
                 promotions::destroy($request->id);
+
+                // return response()->json(['success' => __('messages.success')]);
+
                 return redirect()->back()->with('success', __('messages.success'));
             }
         } catch (\Exception $e) {
+            // return response()->json(['success' => __('messages.success')]);
+
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

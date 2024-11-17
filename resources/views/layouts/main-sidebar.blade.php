@@ -140,10 +140,12 @@
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="Graduate students" class="collapse">
-                                    <li> <a
+                                    <li>
+                                        <a
                                             href="{{ route('Graduated.create') }}">{{ trans('language.add_Graduate') }}</a>
                                     </li>
-                                    <li> <a
+                                    <li>
+                                        <a
                                             href="{{ route('Graduated.index') }}">{{ trans('language.list_Graduate') }}</a>
                                     </li>
                                 </ul>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Fees;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\StoreFeesRequest;
 use App\Models\Fees\Fees;
 use App\Repository\StudentFees\FeesStudentRepositoryinterface;
 use Illuminate\Http\Request;
@@ -27,7 +27,7 @@ class FeesController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreFeesRequest $request)
     {
         return $this->fees->store($request);
     }
@@ -45,7 +45,7 @@ class FeesController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(StoreFeesRequest  $request)
     {
         return $this->fees->update($request);
     }

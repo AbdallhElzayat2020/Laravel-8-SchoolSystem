@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Classrooms\ClassroomController;
+use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\GraduatedStudent\GraduatedController;
 use App\Http\Controllers\HomeController;
@@ -70,5 +71,8 @@ Route::group(
 
         // Graduated Student
         Route::resource('Graduated', GraduatedController::class);
+
+        // Students Fees
+        Route::resource('Fees', FeesController::class);
     }
 );

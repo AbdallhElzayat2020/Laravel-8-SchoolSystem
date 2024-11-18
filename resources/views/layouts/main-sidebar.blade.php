@@ -153,22 +153,21 @@
                         </ul>
                     </li>
 
-                    {{-- Teachers --}}
-
+                    {{-- Accounts--> --}}
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#table">
-                            <div class="pull-left"><i class="ti-layout-tab-window"></i><span
-                                    class="right-nav-text">data
-                                    table</span></div>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
+                            <div class="pull-left"><i class="fas fa-money-bill-wave-alt"></i><span
+                                    class="right-nav-text">{{ trans('language.Accounts') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="table" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="data-html-table.html">Data html table</a></li>
-                            <li><a href="data-local.html">Data local</a></li>
-                            <li><a href="data-table.html">Data table</a></li>
+                        <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{ route('Fees.index') }}">الرسوم الدراسية</a> </li>
                         </ul>
                     </li>
+
+
+
                     <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">More Pages</li>
                     <!-- menu item Custom pages-->
                     <li>

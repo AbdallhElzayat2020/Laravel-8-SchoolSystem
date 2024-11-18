@@ -34,6 +34,11 @@ class RepoServicesProvider extends ServiceProvider
             'App\Repository\GraduatedStudent\GraduatedStudentRepositoryInterface',
             'App\Repository\GraduatedStudent\GraduatedStudentRepository',
         );
+
+        $this->app->bind(
+            'App\Repository\StudentFees\FeesStudentRepositoryinterface',
+            'App\Repository\StudentFees\FeesStudentRepository',
+        );
     }
 
     /**

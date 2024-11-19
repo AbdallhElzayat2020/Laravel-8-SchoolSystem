@@ -30,7 +30,6 @@ class FeesInvoicesController extends Controller
         //
     }
 
-
     public function store(Request $request)
     {
         return $this->feesInvoices->store($request);
@@ -44,18 +43,18 @@ class FeesInvoicesController extends Controller
 
     public function edit($id)
     {
-        //
+        return $this->feesInvoices->edit($id);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        return $this->feesInvoices->update($request);
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        return $this->feesInvoices->destroy($request);
     }
 }

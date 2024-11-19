@@ -23,6 +23,20 @@ class CreateFeeInvoivesTable extends Migration
             $table->decimal('amount', 10, 2);
             $table->longText('description')->nullable();
             $table->timestamps();
+
+
+
+
+            // $table->id();
+            // $table->date('invoice_date');
+            // $table->foreignId('student_id')->references('id')->on('students')->onDelete('cascade');
+            // $table->foreignId('Grade_id')->references('id')->on('Grades')->onDelete('cascade');
+            // $table->foreignId('Classroom_id')->references('id')->on('Classrooms')->onDelete('cascade');
+            // $table->foreignId('fee_id')->references('id')->on('fees')->onDelete('cascade');
+            // $table->decimal('amount',8,2);
+            // $table->string('description')->nullable();
+
+
         });
     }
 

@@ -13,14 +13,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Create Seeder Blood and Nationalities
+        // الجداول الأساسية أولاً (بدون foreign keys)
+        $this->call([
+            BloodSeeder::class,
+            NationalitiesSeeder::class,
+            ReligionSeeder::class,
+            GenderSeeder::class,
+            specializationsSeeder::class,
 
-        $this->call(GenderSeeder::class);
-        $this->call(NationalitiesSeeder::class);
-        $this->call(ReligionSeeder::class);
-        $this->call(specializationsSeeder::class);
-        $this->call(BloodSeeder::class);
-        $this->call(AdminSeeder::class);
-        // \App\Models\User::factory(10)->create();
+            // ثم الجداول التي تعتمد على الجداول الأساسية
+            GradeSeeder::class,
+            ClassroomSeeder::class,
+            SectionsSeeder::class,
+            ParentsSeeder::class,
+            AdminSeeder::class,
+
+            // أخيراً جدول الطلاب لأنه يعتمد على كل الجداول السابقة
+            StudentSeeder::class,
+        ]);
     }
 }

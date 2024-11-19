@@ -1,38 +1,33 @@
 <?php
 
-namespace App\Models\Fees;
+namespace App\Models\Fee_invoive;
 
 use App\Models\Classrooms\Classroom;
+use App\Models\Fees\Fees;
 use App\Models\Grades\Grade;
+use App\Models\Students\Student;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
 
-class Fees extends Model
+class Fee_invoive extends Model
 {
     use HasFactory;
-    use HasTranslations;
+    protected $guarded = [];
 
-    public $translatable = ['title'];
-    protected $fillable = [
-        'title',
-        'amount',
-        'year',
-        'description',
-        'Grade_id',
-        'Classroom_id',
-        'Fee_type',
-    ];
+    protected $table = 'fee_invoives';
 
-    protected $table = 'fees';
-
-
-
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'student_id');
+    }
+    public function fees()
+    {
+        return $this->belongsTo(Fees::class, 'fee_id');
+    }
     public function grade()
     {
         return $this->belongsTo(Grade::class, 'Grade_id');
     }
-
     public function classroom()
     {
         return $this->belongsTo(Classroom::class, 'Classroom_id');

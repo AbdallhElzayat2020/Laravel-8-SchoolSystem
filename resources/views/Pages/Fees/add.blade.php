@@ -47,6 +47,7 @@
                             <input type="number" value="{{ old('amount') }}" name="amount" class="form-control">
                         </div>
 
+
                     </div>
 
 
@@ -68,6 +69,7 @@
 
                             </select>
                         </div>
+
                         <div class="form-group col">
                             <label for="inputZip">السنة الدراسية</label>
                             <select class="custom-select mr-sm-2" name="year">
@@ -78,6 +80,17 @@
                                 @for ($year = $current_year; $year <= $current_year + 1; $year++)
                                     <option value="{{ $year }}">{{ $year }}</option>
                                 @endfor
+                            </select>
+                        </div>
+
+                        <div class="form-group col">
+                            <label for="inputZip">نوع الرسوم</label>
+                            <select class="custom-select mr-sm-2" name="Fee_type">
+                                <option value="1">رسوم دراسية ترم اول</option>
+                                <option value="1">رسوم دراسية ترم تاني </option>
+                                <option value="1">رسوم حفلة تخرج </option>
+                                <option value="1">رسوم اشتراك تربية عسكرية </option>
+                                <option value="2">رسوم باص</option>
                             </select>
                         </div>
                     </div>

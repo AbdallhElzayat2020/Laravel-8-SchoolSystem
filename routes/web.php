@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\My_Parent\My_ParentController;
 use App\Http\Controllers\Promotions\PromotionsController;
 use App\Http\Controllers\Sections\SectionController;
+use App\Http\Controllers\StudentFeesInvoices\FeesInvoicesController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use Illuminate\Support\Facades\Auth;
@@ -74,5 +75,7 @@ Route::group(
 
         // Students Fees
         Route::resource('Fees', FeesController::class);
+        // StudentsFeesInvoices
+        Route::resource('Fees_Invoices', FeesInvoicesController::class);
     }
 );

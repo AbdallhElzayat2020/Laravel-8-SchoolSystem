@@ -7,6 +7,7 @@ use App\Http\Controllers\GraduatedStudent\GraduatedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\My_Parent\My_ParentController;
 use App\Http\Controllers\Promotions\PromotionsController;
+use App\Http\Controllers\ReceiptStudents\ReceiptStudentController;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\StudentFeesInvoices\FeesInvoicesController;
 use App\Http\Controllers\Students\StudentController;
@@ -75,7 +76,11 @@ Route::group(
 
         // Students Fees
         Route::resource('Fees', FeesController::class);
+
         // StudentsFeesInvoices
         Route::resource('Fees_Invoices', FeesInvoicesController::class);
+
+        // StudentsFeesInvoices
+        Route::resource('receipt_students', ReceiptStudentController::class);
     }
 );

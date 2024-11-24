@@ -96,22 +96,23 @@
                     {{-- List_Students --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i
-                                class="fas fa-user-graduate"></i>{{ trans('language.students') }}<div
+                                class="fas fa-user-graduate"></i>{{ trans('language.students') }}
+                            <div
                                 class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="students-menu" class="collapse">
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse"
-                                    data-target="#Student_information">{{ trans('language.Student_information') }}
+                                   data-target="#Student_information">{{ trans('language.Student_information') }}
                                     <div class="pull-right"><i class="ti-plus"></i></div>
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="Student_information" class="collapse">
-                                    <li> <a
+                                    <li><a
                                             href="{{ route('Students.create') }}">{{ trans('language.add_student') }}</a>
                                     </li>
-                                    <li> <a
+                                    <li><a
                                             href="{{ route('Students.index') }}">{{ trans('language.list_students') }}</a>
                                     </li>
                                 </ul>
@@ -119,15 +120,16 @@
 
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse"
-                                    data-target="#Students_upgrade">{{ trans('language.Students_Promotions') }}<div
+                                   data-target="#Students_upgrade">{{ trans('language.Students_Promotions') }}
+                                    <div
                                         class="pull-right"><i class="ti-plus"></i></div>
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="Students_upgrade" class="collapse">
-                                    <li> <a
+                                    <li><a
                                             href="{{ route('Promotions.index') }}">{{ trans('language.add_Promotion') }}</a>
                                     </li>
-                                    <li> <a
+                                    <li><a
                                             href="{{ route('Promotions.create') }}">{{ trans('language.list_Promotions') }}</a>
                                     </li>
                                 </ul>
@@ -135,7 +137,8 @@
 
                             <li>
                                 <a href="javascript:void(0);" data-toggle="collapse"
-                                    data-target="#Graduate students">{{ trans('language.Graduate_students') }}<div
+                                   data-target="#Graduate students">{{ trans('language.Graduate_students') }}
+                                    <div
                                         class="pull-right"><i class="ti-plus"></i></div>
                                     <div class="clearfix"></div>
                                 </a>
@@ -162,9 +165,10 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('Fees.index') }}">الرسوم الدراسية</a> </li>
-                            <li> <a href="{{ route('Fees_Invoices.index') }}">قائمة الفواتير</a> </li>
-                            <li> <a href="{{ route('ProcessingFee.index') }}">استبعاد رسوم</a> </li>
+                            <li><a href="{{ route('Fees.index') }}">الرسوم الدراسية</a></li>
+                            <li><a href="{{ route('Fees_Invoices.index') }}">قائمة الفواتير</a></li>
+                            <li><a href="{{ route('ProcessingFee.index') }}">استبعاد رسوم</a></li>
+                            <li><a href="{{ route('Payment_students.index') }}">سندات الصرف</a></li>
                         </ul>
                     </li>
 
@@ -234,7 +238,7 @@
                                 <ul id="auth" class="collapse">
                                     <li>
                                         <a href="javascript:void(0);" data-toggle="collapse"
-                                            data-target="#login">Level
+                                           data-target="#login">Level
                                             item 1.1
                                             <div class="pull-right"><i class="ti-plus"></i></div>
                                             <div class="clearfix"></div>
@@ -242,7 +246,7 @@
                                         <ul id="login" class="collapse">
                                             <li>
                                                 <a href="javascript:void(0);" data-toggle="collapse"
-                                                    data-target="#invoice">level item 1.1.1
+                                                   data-target="#invoice">level item 1.1.1
                                                     <div class="pull-right"><i class="ti-plus"></i></div>
                                                     <div class="clearfix"></div>
                                                 </a>
@@ -280,7 +284,7 @@
                     <p>Less is more work</p>
                     <div class="about-content">
                         <div class="image">
-                            <img decoding="async" src="images/about.jpg" alt="" />
+                            <img decoding="async" src="images/about.jpg" alt=""/>
                         </div>
                         <div class="text">
                             <p>
@@ -289,7 +293,7 @@
                                 fuga vitae architecto delectus sed maxime rerum impedit aliquam obcaecati, aut excepturi
                                 iusto laudantium!
                             </p>
-                            <hr />
+                            <hr/>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, sapiente. Velit iure
                                 exercitationem

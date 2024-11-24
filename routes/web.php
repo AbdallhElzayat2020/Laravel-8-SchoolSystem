@@ -89,6 +89,6 @@ Route::group(
         Route::resource('ProcessingFee', ProcessingFeeController::class);
 
         // Student Payment
-        Route::resource('payment_students', PaymentController::class);
+        Route::resource('Payment_students', PaymentController::class);
     }
 );

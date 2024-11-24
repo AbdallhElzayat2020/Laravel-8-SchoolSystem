@@ -164,9 +164,9 @@
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('Fees.index') }}">الرسوم الدراسية</a> </li>
                             <li> <a href="{{ route('Fees_Invoices.index') }}">قائمة الفواتير</a> </li>
+                            <li> <a href="{{ route('ProcessingFee.index') }}">استبعاد رسوم</a> </li>
                         </ul>
                     </li>
-
 
 
                     <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">More Pages</li>

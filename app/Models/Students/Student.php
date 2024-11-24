@@ -9,6 +9,7 @@ use App\Models\Images\Image;
 use App\Models\My_Parent;
 use App\Models\Nationalitie;
 use App\Models\Sections\Section;
+use App\Models\StudentAccount\StudentAccount;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -66,7 +67,6 @@ class Student extends Model
     }
 
 
-
     // Morph to Relationship => [student has many images]
     public function images()
     {
@@ -78,5 +78,11 @@ class Student extends Model
     {
         $name = json_decode($this->nationality->Name, true);
         return $name[App::getLocale()] ?? '';
+    }
+
+
+    public function student_account()
+    {
+        return $this->hasMany(StudentAccount::class, 'student_id');
     }
 }

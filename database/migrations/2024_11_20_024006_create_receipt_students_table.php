@@ -16,12 +16,13 @@ class CreateReceiptStudentsTable extends Migration
         Schema::create('receipt_students', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->$table->foreignId('student_id')->constrained('students')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('student_id')->constrained('students')->cascadeOnDelete()->cascadeOnUpdate();
             $table->decimal('Debit', 10, 2)->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

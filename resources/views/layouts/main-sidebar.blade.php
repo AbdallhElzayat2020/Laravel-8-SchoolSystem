@@ -173,27 +173,17 @@
                     </li>
 
 
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">More Pages</li>
-                    <!-- menu item Custom pages-->
+                    <!-- Attendance-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#custom-page">
-                            <div class="pull-left"><i class="ti-file"></i><span class="right-nav-text">Custom
-                                    pages</span></div>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Attendance-icon">
+                            <div class="pull-left"><i class="fas fa-calendar-alt"></i><span
+                                    class="right-nav-text">{{trans('language.Attendance')}}</span>
+                            </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="custom-page" class="collapse" data-parent="#sidebarnav">
-                            <li><a href="projects.html">projects</a></li>
-                            <li><a href="project-summary.html">Projects summary</a></li>
-                            <li><a href="profile.html">profile</a></li>
-                            <li><a href="app-contacts.html">App contacts</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="file-manager.html">file manager</a></li>
-                            <li><a href="invoice.html">Invoice</a></li>
-                            <li><a href="blank.html">Blank page</a></li>
-                            <li><a href="layout-container.html">layout container</a></li>
-                            <li><a href="error.html">Error</a></li>
-                            <li><a href="faqs.html">faqs</a></li>
+                        <ul id="Attendance-icon" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{route('Attendance.index')}}">قائمة الطلاب</a></li>
                         </ul>
                     </li>
                     <!-- menu item Authentication-->

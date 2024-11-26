@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Attendance\AttendanceController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grades\GradeController;
@@ -19,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
-
 Auth::routes();
 
 
@@ -28,8 +28,6 @@ Route::group(['middleware' => 'guest'], function () {
         return view('auth.login');
     });
 });
-
-
 
 
 Route::group(
@@ -90,5 +88,8 @@ Route::group(
 
         // Student Payment
         Route::resource('Payment_students', PaymentController::class);
+
+        // attendances Student
+        Route::resource('Attendance', AttendanceController::class);
     }
 );

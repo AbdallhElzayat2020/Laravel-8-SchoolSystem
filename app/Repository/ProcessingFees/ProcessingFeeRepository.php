@@ -14,6 +14,7 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
     public function index()
     {
         $ProcessingFees = ProcessingFee::all();
+        // return response()->json($ProcessingFees);
         return view('Pages.ProcessingFee.index', compact('ProcessingFees'));
     }
 

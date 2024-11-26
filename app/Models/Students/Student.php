@@ -2,6 +2,7 @@
 
 namespace App\Models\Students;
 
+use App\Models\Attendance\Attendance;
 use App\Models\Classrooms\Classroom;
 use App\Models\Genders\Gender;
 use App\Models\Grades\Grade;
@@ -41,6 +42,7 @@ class Student extends Model
     {
         return $this->belongsTo(Grade::class, 'Grade_id');
     }
+
     // Student belongs to Classroom
     public function classroom()
     {
@@ -84,5 +86,10 @@ class Student extends Model
     public function student_account()
     {
         return $this->hasMany(StudentAccount::class, 'student_id');
+    }
+
+    public function attendance()
+    {
+        return $this->hasMany(Attendance::class, 'student_id');
     }
 }

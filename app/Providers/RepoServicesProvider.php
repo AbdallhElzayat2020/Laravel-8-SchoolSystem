@@ -60,9 +60,15 @@ class RepoServicesProvider extends ServiceProvider
         $this->app->bind(
             'App\Repository\Payments\PaymentRepositoryInterface',
             'App\Repository\Payments\PaymentRepository',
-        );        $this->app->bind(
+        );
+        $this->app->bind(
             'App\Repository\Attendance\AttendanceRepositoryInterface',
             'App\Repository\Attendance\AttendanceRepository',
+        );
+
+        $this->app->bind(
+            'App\Repository\Subjects\SubjectRepositoryInterface',
+            'App\Repository\Subjects\SubjectRepository',
         );
     }
 

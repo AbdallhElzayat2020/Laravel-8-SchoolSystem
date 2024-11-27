@@ -22,7 +22,7 @@ class AttendanceRepository implements AttendanceRepositoryInterface
     public function show($id)
     {
         $students = Student::with(['gender', 'grade', 'classroom', 'section'])->where('section_id', $id)->get();
-//        return $student;
+        // return $student;
         return view('Pages.Attendance.show', compact('students'));
     }
 

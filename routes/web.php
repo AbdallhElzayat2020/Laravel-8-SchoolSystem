@@ -16,6 +16,8 @@ use App\Http\Controllers\StudentFeesInvoices\FeesInvoicesController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\subject\SubjectController;
 use App\Http\Controllers\Teachers\TeacherController;
+use App\Http\Controllers\Exam\ExamController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -95,5 +97,8 @@ Route::group(
 
         // attendances Student
         Route::resource('subjects', SubjectController::class);
+
+        // attendances Student
+        Route::resource('Exams', ExamController::class);
     }
 );

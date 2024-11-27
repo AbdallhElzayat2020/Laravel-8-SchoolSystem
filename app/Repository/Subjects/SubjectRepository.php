@@ -51,7 +51,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             toastr()->success(trans('messages.success'));
             return redirect()->route('subjects.create');
         } catch (\Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 
@@ -75,7 +75,7 @@ class SubjectRepository implements SubjectRepositoryInterface
             toastr()->success(trans('messages.Update'));
             return redirect()->route('subjects.create');
         } catch (\Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 

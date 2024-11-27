@@ -8,7 +8,7 @@
                     <li>
                         <a href="{{ route('dashboard') }}" data-toggle="collapse" data-target="#dashboard">
                             <div class="pull-left"><i class="ti-home"></i><span
-                                    class="right-nav-text">{{ __('language.dashboard') }}</span>
+                                        class="right-nav-text">{{ __('language.dashboard') }}</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
@@ -22,7 +22,7 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements">
                             <div class="pull-left"><i class="fas fa-school"></i><span
-                                    class="right-nav-text">{{ __('language.Grades') }}</span>
+                                        class="right-nav-text">{{ __('language.Grades') }}</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
@@ -36,7 +36,7 @@
                     <li>
                         <a href="javascript:void(0)" data-toggle="collapse" data-target="#calendar-menu">
                             <div class="pull-left"><i class="fa fa-building"></i><span
-                                    class="right-nav-text">{{ __('My_Classes_trans.title_page') }}</span></div>
+                                        class="right-nav-text">{{ __('My_Classes_trans.title_page') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
@@ -68,13 +68,13 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections">
                             <div class="pull-left"><i class="fas fa-chalkboard"></i><span
-                                    class="right-nav-text">{{ __('Sections_trans.title_page') }}</span></div>
+                                        class="right-nav-text">{{ __('Sections_trans.title_page') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="sections" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{ route('sections.index') }}"><i class="ti-menu-alt"></i><span
-                                        class="right-nav-text">{{ __('Sections_trans.List_sections') }}</span> </a>
+                                            class="right-nav-text">{{ __('Sections_trans.List_sections') }}</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -83,7 +83,7 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
                             <div class="pull-left"><i class="fas fa-user-tie"></i><span
-                                    class="right-nav-text">{{ __('language.Parents') }}</span></div>
+                                        class="right-nav-text">{{ __('language.Parents') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
@@ -96,9 +96,9 @@
                     {{-- List_Students --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#students-menu"><i
-                                class="fas fa-user-graduate"></i>{{ trans('language.students') }}
+                                    class="fas fa-user-graduate"></i>{{ trans('language.students') }}
                             <div
-                                class="pull-right"><i class="ti-plus"></i></div>
+                                    class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="students-menu" class="collapse">
@@ -110,10 +110,10 @@
                                 </a>
                                 <ul id="Student_information" class="collapse">
                                     <li><a
-                                            href="{{ route('Students.create') }}">{{ trans('language.add_student') }}</a>
+                                                href="{{ route('Students.create') }}">{{ trans('language.add_student') }}</a>
                                     </li>
                                     <li><a
-                                            href="{{ route('Students.index') }}">{{ trans('language.list_students') }}</a>
+                                                href="{{ route('Students.index') }}">{{ trans('language.list_students') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -122,15 +122,15 @@
                                 <a href="javascript:void(0);" data-toggle="collapse"
                                    data-target="#Students_upgrade">{{ trans('language.Students_Promotions') }}
                                     <div
-                                        class="pull-right"><i class="ti-plus"></i></div>
+                                            class="pull-right"><i class="ti-plus"></i></div>
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="Students_upgrade" class="collapse">
                                     <li><a
-                                            href="{{ route('Promotions.index') }}">{{ trans('language.add_Promotion') }}</a>
+                                                href="{{ route('Promotions.index') }}">{{ trans('language.add_Promotion') }}</a>
                                     </li>
                                     <li><a
-                                            href="{{ route('Promotions.create') }}">{{ trans('language.list_Promotions') }}</a>
+                                                href="{{ route('Promotions.create') }}">{{ trans('language.list_Promotions') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -139,17 +139,17 @@
                                 <a href="javascript:void(0);" data-toggle="collapse"
                                    data-target="#Graduate students">{{ trans('language.Graduate_students') }}
                                     <div
-                                        class="pull-right"><i class="ti-plus"></i></div>
+                                            class="pull-right"><i class="ti-plus"></i></div>
                                     <div class="clearfix"></div>
                                 </a>
                                 <ul id="Graduate students" class="collapse">
                                     <li>
                                         <a
-                                            href="{{ route('Graduated.create') }}">{{ trans('language.add_Graduate') }}</a>
+                                                href="{{ route('Graduated.create') }}">{{ trans('language.add_Graduate') }}</a>
                                     </li>
                                     <li>
                                         <a
-                                            href="{{ route('Graduated.index') }}">{{ trans('language.list_Graduate') }}</a>
+                                                href="{{ route('Graduated.index') }}">{{ trans('language.list_Graduate') }}</a>
                                     </li>
                                 </ul>
                             </li>
@@ -160,7 +160,7 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Accounts-menu">
                             <div class="pull-left"><i class="fas fa-money-bill-wave-alt"></i><span
-                                    class="right-nav-text">{{ trans('language.Accounts') }}</span></div>
+                                        class="right-nav-text">{{ trans('language.Accounts') }}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
@@ -177,7 +177,7 @@
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Attendance-icon">
                             <div class="pull-left"><i class="fas fa-calendar-alt"></i><span
-                                    class="right-nav-text">{{trans('language.Attendance')}}</span>
+                                        class="right-nav-text">{{trans('language.Attendance')}}</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
@@ -190,17 +190,29 @@
 
                     <!-- Subjects-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Subjects">
                             <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">المواد الدراسية</span>
                             </div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
+                        <ul id="Subjects" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{route('subjects.index')}}">قائمة المواد</a></li>
                         </ul>
                     </li>
 
+                    <!-- Exams-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
+                            <div class="pull-left"><i class="fas fa-book-open"></i><span
+                                        class="right-nav-text">{{trans('language.Exams')}}</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{route('Exams.index')}}">قائمة الامتحانات</a></li>
+                        </ul>
+                    </li>
 
                     <!-- menu item maps-->
                     <li>

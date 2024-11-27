@@ -42,20 +42,28 @@ class ExamRepository implements ExamRepositoryInterface
 
     public function update($request)
     {
-        $id = $request->id;
-        $exam = Exam::findOrFail($id);
-        $exam->name = ['ar' => $request->Name_ar, 'en' => $request->Name_en];
-        $exam->term = $request->term;
-        $exam->academic_year = $request->academic_year;
-        $exam->save();
-        toastr()->success(trans('messages.success'));
-        return redirect()->route('Exams.index');
+        try {
+            $id = $request->id;
+            $exam = Exam::findOrFail($id);
+            $exam->name = ['ar' => $request->Name_ar, 'en' => $request->Name_en];
+            $exam->term = $request->term;
+            $exam->academic_year = $request->academic_year;
+            $exam->save();
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('Exams.index');
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     public function destroy($request)
     {
-        $exam = Exam::destroy($request->id);
-        toastr()->success(trans('messages.success'));
-        return redirect()->route('Exams.index');
+        try {
+            $exam = Exam::destroy($request->id);
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('Exams.index');
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 }

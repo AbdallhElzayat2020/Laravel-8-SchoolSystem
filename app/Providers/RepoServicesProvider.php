@@ -72,8 +72,8 @@ class RepoServicesProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            'App\Repository\Exams\ExamRepositoryInterface',
-            'App\Repository\Exams\ExamRepository',
+            'App\Repository\Quizze\QuizzeRepositoryInterface',
+            'App\Repository\Quizze\QuizzeRepository',
         );
     }
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\My_Parent\My_ParentController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\ProcessingFee\ProcessingFeeController;
 use App\Http\Controllers\Promotions\PromotionsController;
+use App\Http\Controllers\Quizes\QuizzeController;
 use App\Http\Controllers\ReceiptStudents\ReceiptStudentController;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\StudentFeesInvoices\FeesInvoicesController;
@@ -95,10 +96,10 @@ Route::group(
         // attendances Student
         Route::resource('Attendance', AttendanceController::class);
 
-        // attendances Student
+        // subjects
         Route::resource('subjects', SubjectController::class);
 
-        // attendances Student
-        Route::resource('Exams', ExamController::class);
+        // subjects
+        Route::resource('Quizzes', QuizzeController::class);
     }
 );

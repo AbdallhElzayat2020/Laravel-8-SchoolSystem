@@ -4,6 +4,7 @@ namespace App\Models\Quizzes;
 
 use App\Models\Classrooms\Classroom;
 use App\Models\Grades\Grade;
+use App\Models\Questions\Question;
 use App\Models\Sections\Section;
 use App\Models\Teacher\Teacher;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -42,5 +43,10 @@ class Quizze extends Model
     public function classroom()
     {
         return $this->belongsTo(Classroom::class, 'classroom_id');
+    }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'classroom_id');
     }
 }

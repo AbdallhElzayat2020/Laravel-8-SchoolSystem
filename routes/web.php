@@ -15,6 +15,7 @@ use App\Http\Controllers\Quizes\QuizzeController;
 use App\Http\Controllers\ReceiptStudents\ReceiptStudentController;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\StudentFeesInvoices\FeesInvoicesController;
+use App\Http\Controllers\Students\OnlineClasseController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\subject\SubjectController;
 use App\Http\Controllers\Teachers\TeacherController;
@@ -105,5 +106,9 @@ Route::group(
 
         // questions
         Route::resource('questions', QuestionController::class);
+
+        // questions
+        Route::resource('online_classes', OnlineClasseController::class);
+
     }
 );

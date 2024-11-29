@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Questions;
 
 use App\Http\Controllers\Controller;
 use App\Models\Questions\Question;
+use App\Repository\Questions\QuestionRepositoryInterface;
 use App\Repository\Quizze\QuizzeRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class QuestionController extends Controller
 {
     protected $question;
 
-    public function __construct(QuizzeRepositoryInterface $question)
+    public function __construct(QuestionRepositoryInterface $question)
     {
         $this->question = $question;
     }
@@ -37,7 +38,7 @@ class QuestionController extends Controller
 
     public function edit($id)
     {
-        return $this->question->edit();
+        return $this->question->edit($id);
 
     }
 

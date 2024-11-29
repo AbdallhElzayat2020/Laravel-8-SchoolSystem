@@ -10,6 +10,7 @@ use App\Http\Controllers\My_Parent\My_ParentController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\ProcessingFee\ProcessingFeeController;
 use App\Http\Controllers\Promotions\PromotionsController;
+use App\Http\Controllers\Questions\QuestionController;
 use App\Http\Controllers\Quizes\QuizzeController;
 use App\Http\Controllers\ReceiptStudents\ReceiptStudentController;
 use App\Http\Controllers\Sections\SectionController;
@@ -101,5 +102,8 @@ Route::group(
 
         // subjects
         Route::resource('Quizzes', QuizzeController::class);
+
+        // questions
+        Route::resource('questions', QuestionController::class);
     }
 );

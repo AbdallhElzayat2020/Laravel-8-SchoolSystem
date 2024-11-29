@@ -225,7 +225,6 @@
                         </a>
                         <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{route('online_classes.index')}}">الاتصال مباشر مع زوم</a></li>
-                            <li><a href="javascript:void(0);">الاتصال الغير مباشر مع زوم</a></li>
                         </ul>
                     </li>
 

@@ -109,6 +109,7 @@ Route::group(
 
         // questions
         Route::resource('online_classes', OnlineClasseController::class);
-
+        Route::get('indirect', [OnlineClasseController::class, 'indirectCreate'])->name('indirect.create');
+        Route::post('indirect', [OnlineClasseController::class, 'indirectStore'])->name('indirect.store');
     }
 );

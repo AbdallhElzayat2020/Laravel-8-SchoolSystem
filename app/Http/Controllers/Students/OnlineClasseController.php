@@ -28,6 +28,42 @@ class OnlineClasseController extends Controller
         return view('Pages.OnlineClasses.add', compact('Grades'));
     }
 
+    public function indirectCreate()
+    {
+        $Grades = Grade::all();
+        return view('Pages.OnlineClasses.indirect', compact('Grades'));
+    }
+
+    public function indirectStore(Request $request)
+    {
+        try {
+            // تحويل وقت البدء إلى التنسيق الصحيح
+            $start_at = date('Y-m-d H:i:s', strtotime($request->start_time));
+
+            // إنشاء السجل
+            Online_classe::create([
+                'integration' => false,
+                'Grade_id' => $request->Grade_id,
+                'Classroom_id' => $request->Classroom_id,
+                'section_id' => $request->section_id,
+                'user_id' => auth()->user()->id,
+                'meeting_id' => $request->meeting_id,
+                'topic' => $request->topic,
+                'start_at' => $start_at,
+                'duration' => $request->duration,
+                'password' => $request->password,
+                'start_url' => $request->start_url,
+                'join_url' => $request->join_url,
+            ]);
+
+            toastr()->success(trans('messages.success'));
+            return redirect()->route('online_classes.index');
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+        }
+    }
+
 
     public function store(Request $request)
     {
@@ -41,6 +77,7 @@ class OnlineClasseController extends Controller
             // إنشاء السجل
             Online_classe::create([
                 'Grade_id' => $request->Grade_id,
+                'integration' => true,
                 'Classroom_id' => $request->Classroom_id,
                 'section_id' => $request->section_id,
                 'user_id' => auth()->user()->id,
@@ -83,14 +120,21 @@ class OnlineClasseController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $meeting = Zoom::meeting()->find($request->id);
-            $meeting->delete();
-            online_classe::where('meeting_id', $request->id)->delete();
+
+            $info = Online_classe::find($request->id);
+            if ($info->integration == true) {
+                $meeting = Zoom::meeting()->find($request->meeting_id);
+                $meeting->delete();
+                // online_classe::where('meeting_id', $request->id)->delete();
+                online_classe::destroy($request->id);
+            } else {
+                // online_classe::where('meeting_id', $request->id)->delete();
+                online_classe::destroy($request->id);
+            }
             toastr()->success(trans('messages.Delete'));
             return redirect()->route('online_classes.index');
         } catch (\Exception $e) {
-            return redirect()->back()->with(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors($e->getMessage());
         }
-
     }
 }

@@ -34,7 +34,7 @@ class LibraryRepository implements LibraryRepositoryInterface
             $books->section_id = $request->section_id;
             $books->teacher_id = 1;
             $books->save();
-            $this->uploadFile($request, 'file_name');
+            $this->uploadFile($request, 'file_name', 'library');
 
             toastr()->success(trans('messages.success'));
             return redirect()->route('library.create');
@@ -51,20 +51,51 @@ class LibraryRepository implements LibraryRepositoryInterface
         return view('Pages.library.edit', compact('book', 'grades'));
     }
 
-    public
-    function update($request)
+//    public
+//    function update($request)
+//    {
+//
+//        try {
+//
+//            $book = Library::findOrFail($request->id);
+//            $book->title = $request->title;
+//
+//            if ($request->hasFile('file_name')) {
+//                $this->deleteFile($book->file_name, '/' . 'library'); // حذف القديم
+//                $file_name = $request->file('file_name')->getClientOriginalName();
+//                $this->uploadFile($request, 'file_name', 'library'); // رفع الجديد
+//                $book->file_name = $file_name;
+//            }
+//
+//            $book->Grade_id = $request->Grade_id;
+//            $book->classroom_id = $request->Classroom_id;
+//            $book->section_id = $request->section_id;
+//            $book->teacher_id = 1;
+//            $book->save();
+//            toastr()->success(trans('messages.Update'));
+//            return redirect()->route('library.index');
+//        } catch (\Exception $e) {
+//            return redirect()->back()->withErrors($e->getMessage());
+//        }
+//
+//    }
+
+    public function update($request)
     {
-
         try {
-
             $book = Library::findOrFail($request->id);
             $book->title = $request->title;
 
             if ($request->hasFile('file_name')) {
-                $this->deleteFile($book->file_name); // حذف القديم
+                // حذف الملف القديم إذا كان موجودًا
+                if ($book->file_name) {
+                    $this->deleteFile($book->file_name, 'library');
+                }
+
+                // رفع الملف الجديد
                 $file_name = $request->file('file_name')->getClientOriginalName();
-                $this->uploadFile($request, 'file_name'); // رفع الجديد
-                $book->file_name = $file_name;
+                $this->uploadFile($request, 'file_name', 'library');
+                $book->file_name = $file_name; // تحديث اسم الملف الجديد
             }
 
             $book->Grade_id = $request->Grade_id;
@@ -72,22 +103,43 @@ class LibraryRepository implements LibraryRepositoryInterface
             $book->section_id = $request->section_id;
             $book->teacher_id = 1;
             $book->save();
+
             toastr()->success(trans('messages.Update'));
             return redirect()->route('library.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
         }
-
     }
 
-    public
-    function destroy($request)
+
+//    public
+//    function destroy($request)
+//    {
+//        $this->deleteFile($request->file_name, 'library');
+//        Library::destroy($request->id);
+//        toastr()->success(trans('messages.Delete'));
+//        return redirect()->route('library.index');
+//    }
+
+    public function destroy( $request)
     {
-        $this->deleteFile($request->file_name);
-        Library::destroy($request->id);
-        toastr()->success(trans('messages.Delete'));
-        return redirect()->route('library.index');
+        try {
+            // حذف الملف المرتبط
+            if ($request->file_name) {
+                $this->deleteFile($request->file_name, 'library');
+            }
+
+            // حذف السجل من قاعدة البيانات
+            Library::destroy($request->id);
+
+            toastr()->success(trans('messages.Delete'));
+            return redirect()->route('library.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+        }
     }
+
+
 
     public
     function download($filename)

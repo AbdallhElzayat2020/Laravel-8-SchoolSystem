@@ -96,7 +96,8 @@
                                         {{--                                               type="application/pdf" height="150px" width="100px">--}}
 
 
-                                        <iframe src="{{ URL::asset('attachments/library/'.$book->file_name) }}"
+                                        <iframe class="bg-danger"
+                                                src="{{ URL::asset('attachments/library/'.$book->file_name) }}"
                                                 width="100px" height="150px">
 
                                         </iframe>

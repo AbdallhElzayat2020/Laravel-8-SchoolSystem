@@ -26,7 +26,8 @@ class DatabaseSeeder extends Seeder
             ParentsSeeder::class,
             AdminSeeder::class,
 
-            StudentSeeder::class,
+//            StudentSeeder::class,
+            SettingSchoolSeeder::class,
         ]);
     }
 }

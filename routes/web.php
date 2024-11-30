@@ -15,6 +15,7 @@ use App\Http\Controllers\Questions\QuestionController;
 use App\Http\Controllers\Quizes\QuizzeController;
 use App\Http\Controllers\ReceiptStudents\ReceiptStudentController;
 use App\Http\Controllers\Sections\SectionController;
+use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\StudentFeesInvoices\FeesInvoicesController;
 use App\Http\Controllers\Students\OnlineClasseController;
 use App\Http\Controllers\Students\StudentController;
@@ -115,8 +116,9 @@ Route::group(
 
         // Library
         Route::resource('library', LibraryController::class);
-
-        // Library
         Route::get('download_file/{filename}', [LibraryController::class, 'downloadAttachment'])->name('downloadAttachment');
+
+        // Settings
+        Route::resource('settings', SettingController::class);
     }
 );

@@ -242,59 +242,13 @@
                     </li>
 
 
-                    <!-- menu item Multi level-->
+                    <!-- Settings-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#multi-level">
-                            <div class="pull-left"><i class="ti-layers"></i><span class="right-nav-text">Multi
-                                    level Menu</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="multi-level" class="collapse" data-parent="#sidebarnav">
-                            <li>
-                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#auth">Level
-                                    item 1
-                                    <div class="pull-right"><i class="ti-plus"></i></div>
-                                    <div class="clearfix"></div>
-                                </a>
-                                <ul id="auth" class="collapse">
-                                    <li>
-                                        <a href="javascript:void(0);" data-toggle="collapse"
-                                           data-target="#login">Level
-                                            item 1.1
-                                            <div class="pull-right"><i class="ti-plus"></i></div>
-                                            <div class="clearfix"></div>
-                                        </a>
-                                        <ul id="login" class="collapse">
-                                            <li>
-                                                <a href="javascript:void(0);" data-toggle="collapse"
-                                                   data-target="#invoice">level item 1.1.1
-                                                    <div class="pull-right"><i class="ti-plus"></i></div>
-                                                    <div class="clearfix"></div>
-                                                </a>
-                                                <ul id="invoice" class="collapse">
-                                                    <li><a href="#">level item 1.1.1.1</a></li>
-                                                    <li><a href="#">level item 1.1.1.2</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">level item 1.2</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#error">level
-                                    item 2
-                                    <div class="pull-right"><i class="ti-plus"></i></div>
-                                    <div class="clearfix"></div>
-                                </a>
-                                <ul id="error" class="collapse">
-                                    <li><a href="#">level item 2.1</a></li>
-                                    <li><a href="#">level item 2.2</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <a href="{{route('settings.index')}}"><i class="fas fa-cogs"></i><span
+                                    class="right-nav-text">{{trans('language.Settings')}} </span></a>
                     </li>
+
+
                 </ul>
             </div>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\GraduatedStudent\GraduatedController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Library\LibraryController;
 use App\Http\Controllers\My_Parent\My_ParentController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\ProcessingFee\ProcessingFeeController;
@@ -107,9 +108,15 @@ Route::group(
         // questions
         Route::resource('questions', QuestionController::class);
 
-        // questions
+        // online_classes Zoom
         Route::resource('online_classes', OnlineClasseController::class);
         Route::get('indirect', [OnlineClasseController::class, 'indirectCreate'])->name('indirect.create');
         Route::post('indirect', [OnlineClasseController::class, 'indirectStore'])->name('indirect.store');
+
+        // Library
+        Route::resource('library', LibraryController::class);
+
+        // Library
+        Route::get('download_file/{filename}', [LibraryController::class, 'downloadAttachment'])->name('downloadAttachment');
     }
 );

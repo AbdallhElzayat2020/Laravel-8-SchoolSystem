@@ -79,6 +79,10 @@ class RepoServicesProvider extends ServiceProvider
             'App\Repository\Questions\QuestionRepositoryInterface',
             'App\Repository\Questions\QuestionRepository',
         );
+        $this->app->bind(
+            'App\Repository\Library\LibraryRepositoryInterface',
+            'App\Repository\Library\LibraryRepository',
+        );
     }
 
     /**

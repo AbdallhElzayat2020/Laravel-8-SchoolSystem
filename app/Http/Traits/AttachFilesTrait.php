@@ -13,15 +13,6 @@ trait AttachFilesTrait
     }
 
 
-
-//    public function deleteFile($name, $folder)
-//    {
-//        $exists = Storage::disk('upload_attachments')->exists('attachments/', $folder . '/' . $name);
-//        if ($exists) {
-//            Storage::disk('upload_attachments')->delete('attachments/', $folder . '/' . $name);
-//        }
-//    }
-
     public function deleteFile($name, $folder)
     {
         $path = 'attachments/' . $folder . '/' . $name; // التأكد من مسار الملف
@@ -29,7 +20,6 @@ trait AttachFilesTrait
             Storage::disk('upload_attachments')->delete($path);
         }
     }
-
 
 
 }

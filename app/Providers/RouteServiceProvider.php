@@ -10,15 +10,11 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
-    /**
-     * The path to the "home" route for your application.
-     *
-     * This is used by Laravel authentication to redirect users after login.
-     *
-     * @var string
-     */
 
     public const HOME = '/dashboard';
+    public const STUDENT = 'student/dashboard';
+    public const TEACHER = '/dashboard';
+    public const PARENT = '/dashboard';
 
     /**
      * The controller namespace for the application.
@@ -36,19 +32,41 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
+
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
+            // Admin = Web
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            // Student
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/student.php'));
+
+            // Teacher
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/teacher.php'));
+
+            // Parent
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/parent.php'));
         });
     }
+
+
+
+
 
     /**
      * Configure the rate limiters for the application.

@@ -12,24 +12,22 @@ use App\Models\Nationalitie;
 use App\Models\Sections\Section;
 use App\Models\StudentAccount\StudentAccount;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Translatable\HasTranslations;
 use Illuminate\Support\Facades\App;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Translatable\HasTranslations;
 
-class Student extends Model
+class Student extends Authenticatable
 {
-    use HasFactory, SoftDeletes;
 
+    use HasFactory, SoftDeletes;
     use HasTranslations;
 
     protected $table = 'students';
 
-
     public $translatable = ['name'];
 
     protected $guarded = [];
-
 
     // Student belongs to Gender
     public function gender()
@@ -48,7 +46,6 @@ class Student extends Model
     {
         return $this->belongsTo(Classroom::class, 'Classroom_id');
     }
-
 
     // student belongs to Nationality
     public function Nationality()

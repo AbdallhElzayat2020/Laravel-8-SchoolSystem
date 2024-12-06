@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Attendance\AttendanceController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grades\GradeController;
@@ -21,21 +22,31 @@ use App\Http\Controllers\Students\OnlineClasseController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\subject\SubjectController;
 use App\Http\Controllers\Teachers\TeacherController;
-use App\Http\Controllers\Exam\ExamController;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
-Auth::routes();
+//Auth::routes();
 
 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', function () {
-        return view('auth.login');
-    });
-});
+// Route::group(['middleware' => 'guest'], function () {
+//     Route::get('/', function () {
+//         return view('auth.login');
+//     });
+// });
+
+
+// Login routes
+Route::get('/', [HomeController::class, 'index'])->name('selection');
+
+Route::get('/login/{type}', [LoginController::class, 'LoginForm'])->middleware('guest')->name('login.show');
+
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::get('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
+
 
 
 Route::group(
@@ -46,6 +57,9 @@ Route::group(
     function () {
         // Dashboard Home
         Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+        Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+
 
         // Grades Route
         Route::resource('grades', GradeController::class);

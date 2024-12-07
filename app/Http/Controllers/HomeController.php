@@ -11,7 +11,6 @@ class HomeController extends Controller
 {
 
 
-
     public function index()
     {
         return view('auth.selection');
@@ -22,6 +21,7 @@ class HomeController extends Controller
         $students_count = Student::count();
         $teachers_count = Teacher::count();
         $parents_count = My_Parent::count();
+
         $sections_count = Section::count();
         return view('dashboard', compact(
             'students_count',

@@ -34,9 +34,9 @@ class TeacherRepository implements TeacherRepositoryInterface
         try {
             $Teachers = new Teacher();
 
-            $Teachers->Email = $request->Email;
+            $Teachers->email = $request->Email;
 
-            $Teachers->Password = Hash::make($request->Password);
+            $Teachers->password = Hash::make($request->Password);
 
             $Teachers->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
 
@@ -68,9 +68,9 @@ class TeacherRepository implements TeacherRepositoryInterface
         try {
             $Teachers = Teacher::findOrFail($request->id);
 
-            $Teachers->Email = $request->Email;
+            $Teachers->email = $request->Email;
 
-            $Teachers->Password = Hash::make($request->Password);
+            $Teachers->password = Hash::make($request->Password);
 
             $Teachers->Name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
 

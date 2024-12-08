@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Teachers\dashboard\StudentController as DashboardStudentController;
 use App\Models\Students\Student;
 use App\Models\Teacher\Teacher;
 use Illuminate\Support\Facades\Route;
@@ -20,13 +21,12 @@ Route::group(
 
             $ids = Teacher::findorFail(auth()->user()->id)->Sections()->pluck('section_id');
             $data['count_sections'] = $ids->count();
-            $data['count_students'] = Student::whereIn('section_id', $ids)->count();
-
-            //        $ids = DB::table('teacher_section')->where('teacher_id',auth()->user()->id)->pluck('section_id');
-            //        $count_sections =  $ids->count();
-            //        $count_students = DB::table('students')->whereIn('section_id',$ids)->count();
+            $data['count_students'] = Student::where('section_id', $ids)->count();
 
             return view('Pages.Teachers.dashboard.dashboard', $data);
         });
+
+        Route::get('students', [DashboardStudentController::class, 'getStudents'])->name('getStudents');
     }
+    
 );

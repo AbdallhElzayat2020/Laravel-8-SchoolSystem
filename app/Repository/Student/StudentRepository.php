@@ -13,6 +13,7 @@ use App\Models\Images\Image;
 use App\Models\Sections\Section;
 use App\Models\Students\Student;
 use App\Repository\Student\StudentRepositoryInterface;
+use http\Client\Curl\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -131,7 +132,7 @@ class StudentRepository implements StudentRepositoryInterface
         $data['nationalities'] = Nationalitie::all();
         $data['bloods'] = Type_Blood::all();
         $Students =  Student::findOrFail($id);
-        return view('pages.Students.edit', $data, compact('Students'));
+        return view('Pages.Students.edit', $data, compact('Students'));
     }
 
 

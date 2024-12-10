@@ -6,6 +6,7 @@ use App\Models\My_Parent;
 use App\Models\Sections\Section;
 use App\Models\Students\Student;
 use App\Models\Teacher\Teacher;
+use App\Models\User;
 
 class HomeController extends Controller
 {

@@ -40,7 +40,7 @@
                                         @foreach ($Teachers as $key => $Teacher)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
-                                                <td>{{ $Teacher->Name }}</td>
+                                                <td>{{ $Teacher->name }}</td>
                                                 <td>{{ $Teacher->genders->Name }}</td>
                                                 <td>{{ $Teacher->Joining_Date }}</td>
                                                 <td>{{ $Teacher->specializations->Name }}</td>

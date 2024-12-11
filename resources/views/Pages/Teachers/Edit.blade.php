@@ -36,7 +36,7 @@
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Email') }}</label>
                                     <input type="hidden" value="{{ $Teachers->id }}" name="id">
-                                    <input type="email" name="Email" value="{{ $Teachers->Email }}"
+                                    <input type="email" name="Email" value="{{ $Teachers->email }}"
                                         class="form-control">
                                     @error('Email')
                                         <div class="alert alert-danger">{{ $message }}</div>
@@ -46,8 +46,8 @@
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Password') }}</label>
                                     <div class="input-group">
-                                        <input type="password" name="Password" value="{{ $Teachers->Password }}"
-                                            name="Password" class="form-control" id="passwordInput">
+                                        <input type="password" name="password" value="{{ $Teachers->password }}"
+                                            class="form-control" id="passwordInput">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-secondary" type="button"
                                                 id="togglePassword">
@@ -55,7 +55,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    @error('Password')
+                                    @error('password')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -76,7 +76,7 @@
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Name_ar') }}</label>
                                     <input type="text" name="Name_ar"
-                                        value="{{ $Teachers->getTranslation('Name', 'ar') }}" class="form-control">
+                                        value="{{ $Teachers->getTranslation('name', 'ar') }}" class="form-control">
                                     @error('Name_ar')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -84,7 +84,7 @@
                                 <div class="col">
                                     <label for="title">{{ trans('Teacher_trans.Name_en') }}</label>
                                     <input type="text" name="Name_en"
-                                        value="{{ $Teachers->getTranslation('Name', 'en') }}" class="form-control">
+                                        value="{{ $Teachers->getTranslation('name', 'en') }}" class="form-control">
                                     @error('Name_en')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

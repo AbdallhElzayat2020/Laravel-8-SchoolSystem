@@ -18,7 +18,7 @@ class Teacher extends Authenticatable
 
     protected $table = 'teachers';
 
-    public $translatable = ['Name'];
+    public $translatable = ['name'];
 
     protected $guarded = [];
 

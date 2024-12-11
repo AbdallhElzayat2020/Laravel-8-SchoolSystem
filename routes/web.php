@@ -48,7 +48,6 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
 
 
-
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
@@ -79,7 +78,6 @@ Route::group(
 
         // Teacher Routes
         Route::resource('Teachers', TeacherController::class);
-
 
         // Students Route
         Route::resource('Students', StudentController::class);
